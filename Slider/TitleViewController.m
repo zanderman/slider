@@ -9,6 +9,7 @@
 #import "TitleViewController.h"
 
 @interface TitleViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *pointsLabel;
 
 @end
 
@@ -27,6 +28,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
 }
 
 - (void)didReceiveMemoryWarning

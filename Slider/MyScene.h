@@ -7,7 +7,10 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "ViewController.h"
 
 @interface MyScene : SKScene<SKPhysicsContactDelegate>
--(void)buildLevel;
+-(void)buildLevel1;
+-(void)createCharacter;
++(void)setMyStaticVar:(ViewController*)newValue;
 @end
