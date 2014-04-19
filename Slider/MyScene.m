@@ -14,8 +14,12 @@
 
 @implementation MyScene
 
+int globalPoints;
+
 -(id)initWithSize:(CGSize)size {
     self.physicsWorld.contactDelegate = self;
+    globalPoints = 0;
+    
     if (self = [super initWithSize:size]) {
         /* Setup your scene here */
         
@@ -29,8 +33,10 @@
         myLabel.position = CGPointMake(CGRectGetMidX(self.frame), 420);
         //myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
         //                              CGRectGetMidY(self.frame));
-        
+        self.physicsWorld.gravity = CGVectorMake(0, 0); // No XY gravity.
         self.physicsWorld.contactDelegate = self;
+        
+        
         
         [self addChild:myLabel];
         
@@ -44,24 +50,36 @@
         [self addChild:self.player];
         
         // Physics for penguin.
-        self.player.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.player.size.width/2];
-//        self.player.physicsBody.mass = 10;
+        self.player.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.player.frame.size.width/2];
         self.player.physicsBody.restitution = 0.1f;
         self.player.physicsBody.friction = 0.4f;
-        self.player.physicsBody.dynamic = NO;
+        self.player.physicsBody.dynamic = YES;
         
-        
+//        SKSpriteNode* wall1 = [SKSpriteNode alloc];
         for (int i=0; i<10; i++) {
             SKSpriteNode* iceBlock = [[SKSpriteNode alloc] initWithImageNamed: @"iceBlock.png"];
             iceBlock.position = CGPointMake(i*20, 150);
             [iceBlock setScale:0.2];
             [self addChild:iceBlock];
-            iceBlock.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:iceBlock.frame.size];
+            iceBlock.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:(iceBlock.frame.size)];
             iceBlock.physicsBody.restitution = 0.1f;
             iceBlock.physicsBody.friction = 0.4f;
             // make physicsBody static
             iceBlock.physicsBody.dynamic = NO;
+//            [wall1 addChild:iceBlock];
         }
+//        wall1.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:(wall1.frame.size)];
+//        wall1.physicsBody.restitution = 0.1f;
+//        wall1.physicsBody.friction = 0.4f;
+//        // make physicsBody static
+//        wall1.physicsBody.dynamic = NO;
+        
+        
+        
+        
+        
+        
+        
         
         for (int i=0; i<10; i++) {
             SKSpriteNode* iceBlock = [[SKSpriteNode alloc] initWithImageNamed: @"iceBlock.png"];
@@ -88,9 +106,11 @@
 
 - (void)didBeginContact:(SKPhysicsContact *)contact
 {
+    globalPoints++;
     NSLog(@"Contact");
 }
 
+// Touch event.
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
     
@@ -99,8 +119,12 @@
         CGPoint location = [touch locationInNode:self];
         SKAction *action = [SKAction moveTo:location duration:1];
         [self.player runAction:action]; // run the action created above.
+//        NSLog(self.maxAccX.text);
     }
 }
+
+// Motion code
+
 
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
