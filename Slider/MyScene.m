@@ -25,6 +25,7 @@ static const uint32_t penguinCategory     =  0x1 << 0;
 int globalPoints;
 +(void)setMyStaticVar:(ViewController*)newValue
 {
+    // test
     parentView = newValue;
 }
 
