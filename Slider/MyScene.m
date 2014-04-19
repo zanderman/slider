@@ -22,12 +22,16 @@ ViewController *parentView;
 
 static const uint32_t penguinCategory     =  0x1 << 0;
 
+int globalPoints;
 +(void)setMyStaticVar:(ViewController*)newValue
 {
     parentView = newValue;
 }
 
--(id)initWithSize:(CGSize)size {    
+-(id)initWithSize:(CGSize)size {
+    self.physicsWorld.contactDelegate = self;
+    globalPoints = 0;
+    
     if (self = [super initWithSize:size]) {
         /* Setup your scene here */
         
@@ -44,65 +48,77 @@ static const uint32_t penguinCategory     =  0x1 << 0;
         // Set up physics for the scene
         self.physicsWorld.gravity = CGVectorMake(0,-1);
         self.physicsWorld.contactDelegate = self;
+        
         self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:CGRectMake(0, 0, width, gameHeight)];
         self.physicsBody.friction = 10.0f;
         
         [self buildLevel1];
         [self createCharacter];
-        
+
     }
     return self;
 }
-
+-(SKSpriteNode*)buildIceBlock
+{
+    CGSize blockSize = CGSizeMake(20, 20);
+    
+    SKSpriteNode* iceBlock = [[SKSpriteNode alloc] initWithImageNamed: @"ice-icon.png"];
+    [iceBlock setSize:blockSize];
+    [self addChild:iceBlock];
+    iceBlock.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:iceBlock.frame.size];
+    
+    iceBlock.physicsBody.restitution = 1.1f;
+    iceBlock.physicsBody.friction = 1.0f;
+    // make physicsBody static
+    iceBlock.physicsBody.dynamic = NO;
+    return iceBlock;
+}
 -(void)buildLevel1
 {
     CGSize blockSize = CGSizeMake(20, 20);
     
+    [self buildIceBlock].position = CGPointMake(CGRectGetMidX(self.frame)-20,10);
+    [self buildIceBlock].position = CGPointMake(CGRectGetMidX(self.frame)+20,10);
+    
     for (int i=0; i<10; i++) {
-        SKSpriteNode* iceBlock = [[SKSpriteNode alloc] initWithImageNamed: @"ice-icon.png"];
-        iceBlock.position = CGPointMake(i*20+blockSize.width/2, 150);
-        [iceBlock setSize:blockSize];
-        [self addChild:iceBlock];
-        iceBlock.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:iceBlock.frame.size];
-        
-        iceBlock.physicsBody.restitution = 1.1f;
-        iceBlock.physicsBody.friction = 1.0f;
-        // make physicsBody static
-        iceBlock.physicsBody.dynamic = NO;
+        [self buildIceBlock].position = CGPointMake(i*20+blockSize.width/2, 150);
     }
     
     for (int i=0; i<10; i++) {
-        SKSpriteNode* iceBlock = [[SKSpriteNode alloc] initWithImageNamed: @"ice-icon.png"];
-        iceBlock.position = CGPointMake(190, i*20+150);
-        [iceBlock setSize:blockSize];
-        [self addChild:iceBlock];
-        iceBlock.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:iceBlock.frame.size];
-        iceBlock.physicsBody.restitution = 1.1f;
-        iceBlock.physicsBody.friction = 1.0f;
-        // make physicsBody static
-        iceBlock.physicsBody.dynamic = NO;
+        [self buildIceBlock].position = CGPointMake(190, i*20+150);
     }
     
 }
 
 -(void)createCharacter
 {
+    
     // Character in the game.
     self.player = [SKSpriteNode spriteNodeWithImageNamed:@"player"];
     self.player.position = CGPointMake(CGRectGetMidX(self.frame), 50);
-    self.player.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.player.frame.size];
+
     self.player.physicsBody.restitution = 0.1f;
     self.player.physicsBody.friction = 0.4f;
-    [self.player setScale:0.1];
-    self.player.physicsBody.categoryBitMask = penguinCategory;
-    //  self.player.physicsBody.collisionBitMask = penguinCategory;
-    self.player.physicsBody.contactTestBitMask = penguinCategory;
+    [self.player setSize:CGSizeMake(19, 19)];
+    self.player.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.player.frame.size];
     [self addChild:self.player];
+    
+    // Physics for penguin.
+    //self.player.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.player.frame.size.width/2];
+//    self.player.physicsBody.restitution = 0.1f;
+//    self.player.physicsBody.friction = 0.4f;
+    self.player.physicsBody.dynamic = YES;
+    
+    self.player.physicsBody.categoryBitMask = penguinCategory;
+    self.player.physicsBody.collisionBitMask = penguinCategory;
+    self.player.physicsBody.contactTestBitMask = penguinCategory;
+
 }
 
 - (void)didBeginContact:(SKPhysicsContact *)contact
 {
     globalPoints++;
+    [self.player removeAllActions];
     NSLog(@"Contact");
 }
 
@@ -114,6 +130,7 @@ static const uint32_t penguinCategory     =  0x1 << 0;
         // Move penguin.
         CGPoint location = [touch locationInNode:self];
         SKAction *action = [SKAction moveTo:location duration:1];
+        
         [self.player runAction:action]; // run the action created above.
 //        NSLog(self.maxAccX.text);
     }

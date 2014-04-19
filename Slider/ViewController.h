@@ -8,7 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
+#import <CoreMotion/CoreMotion.h>
 #import "TitleViewController.h"
+
+// Motion Variables
+double currentMaxAccelX;
+double currentMaxAccelY;
+double currentMaxAccelZ;
+double currentMaxRotX;
+double currentMaxRotY;
+double currentMaxRotZ;
+
 
 @interface ViewController : UIViewController
 

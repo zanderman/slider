@@ -11,6 +11,7 @@
 
 @interface MyScene : SKScene<SKPhysicsContactDelegate>
 -(void)buildLevel1;
+-(SKSpriteNode*)buildIceBlock;
 -(void)createCharacter;
 +(void)setMyStaticVar:(ViewController*)newValue;
 @end
