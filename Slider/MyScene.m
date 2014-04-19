@@ -26,7 +26,7 @@
         myLabel.fontSize = 30;
         myLabel.position = CGPointMake(CGRectGetMidX(self.frame), 420);
         //myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
-         //                              CGRectGetMidY(self.frame));
+        //                              CGRectGetMidY(self.frame));
         
         [self addChild:myLabel];
         
@@ -35,8 +35,38 @@
         [self.player setScale:0.1];
         
         [self addChild:self.player];
+        
+        for (int i=0; i<10; i++) {
+            SKSpriteNode* iceBlock = [[SKSpriteNode alloc] initWithImageNamed: @"iceBlock.png"];
+            iceBlock.position = CGPointMake(i*20, 150);
+            [iceBlock setScale:0.2];
+            [self addChild:iceBlock];
+            iceBlock.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:iceBlock.frame.size];
+            iceBlock.physicsBody.restitution = 0.1f;
+            iceBlock.physicsBody.friction = 0.4f;
+            // make physicsBody static
+            iceBlock.physicsBody.dynamic = NO;
+        }
+        
+        for (int i=0; i<10; i++) {
+            SKSpriteNode* iceBlock = [[SKSpriteNode alloc] initWithImageNamed: @"iceBlock.png"];
+            iceBlock.position = CGPointMake(180, i*20+150);
+            [iceBlock setScale:0.2];
+            [self addChild:iceBlock];
+            iceBlock.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:iceBlock.frame.size];
+            iceBlock.physicsBody.restitution = 0.1f;
+            iceBlock.physicsBody.friction = 0.4f;
+            // make physicsBody static
+            iceBlock.physicsBody.dynamic = NO;
+        }
+
     }
     return self;
+}
+
+- (void)didBeginContact:(SKPhysicsContact *)contact
+{
+    NSLog(@"Contact");
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
