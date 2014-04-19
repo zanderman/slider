@@ -26,6 +26,10 @@
     
     // Present the scene.
     [skView presentScene:scene];
+    skView.bounds.size.width;
+    
+    CGPointMake(2,3);
+    
 }
 
 - (BOOL)shouldAutorotate

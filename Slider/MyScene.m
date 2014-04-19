@@ -8,6 +8,10 @@
 
 #import "MyScene.h"
 
+@interface MyScene ()
+@property (nonatomic) SKSpriteNode * player;
+@end
+
 @implementation MyScene
 
 -(id)initWithSize:(CGSize)size {    
@@ -16,14 +20,21 @@
         
         self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
         
-        SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+        SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"MarkerFelt-Wide"];
         
-        myLabel.text = @"Hello, World!";
+        myLabel.text = @"Slipy Penguin";
         myLabel.fontSize = 30;
-        myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
-                                       CGRectGetMidY(self.frame));
+        myLabel.position = CGPointMake(CGRectGetMidX(self.frame), 420);
+        //myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
+         //                              CGRectGetMidY(self.frame));
         
         [self addChild:myLabel];
+        
+        self.player = [SKSpriteNode spriteNodeWithImageNamed:@"player"];
+        self.player.position = CGPointMake(160, 50);
+        [self.player setScale:0.1];
+        
+        [self addChild:self.player];
     }
     return self;
 }
