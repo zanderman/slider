@@ -102,9 +102,11 @@ static const uint32_t penguinCategory     =  0x1 << 0;
 
 - (void)didBeginContact:(SKPhysicsContact *)contact
 {
+    globalPoints++;
     NSLog(@"Contact");
 }
 
+// Touch event.
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
     
@@ -112,16 +114,13 @@ static const uint32_t penguinCategory     =  0x1 << 0;
         // Move penguin.
         CGPoint location = [touch locationInNode:self];
         SKAction *action = [SKAction moveTo:location duration:1];
-        [self.player runAction:action];
-        
-        
-//        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
-//        sprite.position = location; //set position of the new sprite.
-//        SKAction *action = [SKAction rotateByAngle:M_PI duration:1]
-//        [self.player runAction:[SKAction repeatActionForever:action]];
-//        [self addChild:sprite];
+        [self.player runAction:action]; // run the action created above.
+//        NSLog(self.maxAccX.text);
     }
 }
+
+// Motion code
+
 
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
