@@ -14,7 +14,8 @@
 
 @implementation MyScene
 
--(id)initWithSize:(CGSize)size {    
+-(id)initWithSize:(CGSize)size {
+    self.physicsWorld.contactDelegate = self;
     if (self = [super initWithSize:size]) {
         /* Setup your scene here */
         
@@ -35,8 +36,15 @@
         self.player = [SKSpriteNode spriteNodeWithImageNamed:@"player"];
         self.player.position = CGPointMake(CGRectGetMidX(self.frame), 50);
         [self.player setScale:0.1];
-        
         [self addChild:self.player];
+        
+        // Physics for penguin.
+        self.player.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.player.size.width/2];
+//        self.player.physicsBody.mass = 10;
+        self.player.physicsBody.restitution = 0.1f;
+        self.player.physicsBody.friction = 0.4f;
+        self.player.physicsBody.dynamic = NO;
+        
         
         for (int i=0; i<10; i++) {
             SKSpriteNode* iceBlock = [[SKSpriteNode alloc] initWithImageNamed: @"iceBlock.png"];
@@ -78,14 +86,7 @@
         // Move penguin.
         CGPoint location = [touch locationInNode:self];
         SKAction *action = [SKAction moveTo:location duration:1];
-        [self.player runAction:action];
-        
-        
-//        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
-//        sprite.position = location; //set position of the new sprite.
-//        SKAction *action = [SKAction rotateByAngle:M_PI duration:1]
-//        [self.player runAction:[SKAction repeatActionForever:action]];
-//        [self addChild:sprite];
+        [self.player runAction:action]; // run the action created above.
     }
 }
 
