@@ -10,9 +10,14 @@
 
 @interface MyScene ()
 @property (nonatomic) SKSpriteNode * player;
+@property NSMutableArray *outer;
+@property NSMutableArray *inner;
+@property NSInteger blocksX;
+@property NSInteger blocksY;
 @end
 
 @implementation MyScene
+static const uint32_t penguinCategory     =  0x1 << 0;
 
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
@@ -21,14 +26,61 @@
         self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
         
         SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"MarkerFelt-Wide"];
+
         
+        float height = self.frame.size.height;
+        float width =  self.frame.size.width;
+        
+        NSLog(@"Height of screen: %f", height);
+        NSLog(@"Width of screen : %f", width);
+        
+        float gameHeight = height - 60;
+        
+//        self.outer = [[NSMutableArray alloc] initWithCapacity:width/20];
+//        self.inner = [[NSMutableArray alloc] initWithCapacity:gameHeight/20];
+//        
+//    
+//        self.blocksX = width/20;
+//        self.blocksY = gameHeight/20;
+//        
+//        
+//        self.outer = [[NSMutableArray init]alloc];
+//        for (int i=0;i<_blocksX;i++)
+//        {
+//            NSMutableArray * my2dArray = [[NSMutableArray init]alloc];
+//            for (int j=0;j<_blocksY;j++)
+//            {
+//                [my2dArray addObject:NULL];  // ad objects to the array
+//            }
+//            [self.outer addObject: my2dArray]; //add the array to the main array
+//            [my2dArray: release];
+//        }
+//        
+//
+//        
+        
+//        for (int i=0; i<width/20; i++) {
+//            SKSpriteNode* iceBlock = [[SKSpriteNode alloc] initWithImageNamed: @"iceBlock.png"];
+////            iceBlock.position = CGPointMake(20, 150);
+//            [iceBlock setSize:CGSizeMake(20, 20)];
+//            iceBlock.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:iceBlock.frame.size];
+//            
+//            iceBlock.physicsBody.restitution = 0.1f;
+//            iceBlock.physicsBody.friction = 0.4f;
+//            // make physicsBody static
+//            iceBlock.physicsBody.dynamic = NO;
+//            
+//            [[self.outer objectAtIndex:4] addObject:iceBlock];
+   //     }
+        [self buildLevel];
         // Text at top of the screen.
-        myLabel.text = @"Slipy Penguin";
-        myLabel.fontSize = 30;
-        myLabel.position = CGPointMake(CGRectGetMidX(self.frame), 420);
-        //myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
-        //                              CGRectGetMidY(self.frame));
+//        myLabel.text = @"Slipy Penguin";
+//        myLabel.fontSize = 30;
+//        myLabel.position = CGPointMake(CGRectGetMidX(self.frame), 420);
+//        myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
+//                                      CGRectGetMidY(self.frame));
         
+        self.physicsWorld.gravity = CGVectorMake(0,-1);
         self.physicsWorld.contactDelegate = self;
         
         [self addChild:myLabel];
@@ -40,29 +92,32 @@
         self.player.physicsBody.restitution = 0.1f;
         self.player.physicsBody.friction = 0.4f;
         [self.player setScale:0.1];
-        
+        self.player.physicsBody.categoryBitMask = penguinCategory;
+      //  self.player.physicsBody.collisionBitMask = penguinCategory;
+        self.player.physicsBody.contactTestBitMask = penguinCategory;
         [self addChild:self.player];
         
         for (int i=0; i<10; i++) {
             SKSpriteNode* iceBlock = [[SKSpriteNode alloc] initWithImageNamed: @"iceBlock.png"];
-            iceBlock.position = CGPointMake(i*20, 150);
-            [iceBlock setScale:0.2];
+            iceBlock.position = CGPointMake(i*19, 150);
+            [iceBlock setSize:CGSizeMake(20, 20)];
             [self addChild:iceBlock];
             iceBlock.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:iceBlock.frame.size];
-            iceBlock.physicsBody.restitution = 0.1f;
-            iceBlock.physicsBody.friction = 0.4f;
+
+            iceBlock.physicsBody.restitution = 1.1f;
+            iceBlock.physicsBody.friction = 1.0f;
             // make physicsBody static
             iceBlock.physicsBody.dynamic = NO;
         }
         
         for (int i=0; i<10; i++) {
             SKSpriteNode* iceBlock = [[SKSpriteNode alloc] initWithImageNamed: @"iceBlock.png"];
-            iceBlock.position = CGPointMake(180, i*20+150);
-            [iceBlock setScale:0.2];
+            iceBlock.position = CGPointMake(180, i*19+150);
+            [iceBlock setSize:CGSizeMake(20, 20)];
             [self addChild:iceBlock];
             iceBlock.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:iceBlock.frame.size];
-            iceBlock.physicsBody.restitution = 0.1f;
-            iceBlock.physicsBody.friction = 0.4f;
+            iceBlock.physicsBody.restitution = 1.1f;
+            iceBlock.physicsBody.friction = 1.0f;
             // make physicsBody static
             iceBlock.physicsBody.dynamic = NO;
         }
@@ -76,6 +131,20 @@
 //        SKAction *move_up = [SKAction move];
     }
     return self;
+}
+
+-(void)buildLevel
+{
+    for(int x=0; x<self.blocksX; x++) {
+        for(int y=0; y<self.blocksY; y++) {
+            SKSpriteNode *node =[[self.outer objectAtIndex:x] objectAtIndex:y];
+            if ( node != NULL) {
+                [self addChild:node];
+            }
+        }
+    }
+    
+    
 }
 
 - (void)didBeginContact:(SKPhysicsContact *)contact
