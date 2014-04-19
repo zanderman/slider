@@ -9,5 +9,5 @@
 #import <SpriteKit/SpriteKit.h>
 
 @interface MyScene : SKScene<SKPhysicsContactDelegate>
-
+-(void)buildLevel;
 @end
