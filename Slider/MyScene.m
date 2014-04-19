@@ -22,6 +22,7 @@
         
         SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"MarkerFelt-Wide"];
         
+        // Text at top of the screen.
         myLabel.text = @"Slipy Penguin";
         myLabel.fontSize = 30;
         myLabel.position = CGPointMake(CGRectGetMidX(self.frame), 420);
@@ -30,8 +31,9 @@
         
         [self addChild:myLabel];
         
+        // Character in the game.
         self.player = [SKSpriteNode spriteNodeWithImageNamed:@"player"];
-        self.player.position = CGPointMake(160, 50);
+        self.player.position = CGPointMake(CGRectGetMidX(self.frame), 50);
         [self.player setScale:0.1];
         
         [self addChild:self.player];
@@ -73,17 +75,17 @@
     /* Called when a touch begins */
     
     for (UITouch *touch in touches) {
+        // Move penguin.
         CGPoint location = [touch locationInNode:self];
+        SKAction *action = [SKAction moveTo:location duration:1];
+        [self.player runAction:action];
         
-        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
         
-        sprite.position = location;
-        
-        SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
-        
-        [sprite runAction:[SKAction repeatActionForever:action]];
-        
-        [self addChild:sprite];
+//        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
+//        sprite.position = location; //set position of the new sprite.
+//        SKAction *action = [SKAction rotateByAngle:M_PI duration:1]
+//        [self.player runAction:[SKAction repeatActionForever:action]];
+//        [self addChild:sprite];
     }
 }
 
