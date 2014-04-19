@@ -23,11 +23,6 @@ ViewController *parentView;
 static const uint32_t penguinCategory     =  0x1 << 0;
 
 int globalPoints;
-+(void)setMyStaticVar:(ViewController*)newValue
-{
-    // test
-    parentView = newValue;
-}
 
 -(id)initWithSize:(CGSize)size {
     self.physicsWorld.contactDelegate = self;
@@ -125,20 +120,48 @@ int globalPoints;
 
 // Touch event.
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    /* Called when a touch begins */
-    
-    for (UITouch *touch in touches) {
-        // Move penguin.
-        CGPoint location = [touch locationInNode:self];
-        SKAction *action = [SKAction moveTo:location duration:1];
-        
-        [self.player runAction:action]; // run the action created above.
-//        NSLog(self.maxAccX.text);
-    }
+//    /* Called when a touch begins */
+//    
+//    for (UITouch *touch in touches) {
+//        // Move penguin.
+//        CGPoint location = [touch locationInNode:self];
+//        SKAction *action = [SKAction moveTo:location duration:1];
+//        
+//        [self.player runAction:action]; // run the action created above.
+////        NSLog(self.maxAccX.text);
+//    }
 }
 
 // Motion code
 
+// Handle swipe gesture.
+-(void)moveCharacter:(UISwipeGestureRecognizer *)recognizer {
+    //    SKSpriteNode *temp = self.player;
+    
+    // Right
+    if(recognizer.direction == UISwipeGestureRecognizerDirectionRight) {
+        NSLog(@"Swipe right.");
+        //        CGPoint location = CGPointMake(100, 100);
+        //        SKAction *action = [SKAction moveTo:location duration:1];
+        SKAction *action = [SKAction moveToX:250 duration:1];
+        [self.player runAction:action];
+    }
+    
+    // Left
+    if ((recognizer.direction == UISwipeGestureRecognizerDirectionLeft)) {
+        NSLog(@"Swipe left.");
+    }
+    
+    // Up
+    if ((recognizer.direction == UISwipeGestureRecognizerDirectionUp)) {
+        NSLog(@"Swipe up.");
+    }
+    
+    // Down
+    if ((recognizer.direction == UISwipeGestureRecognizerDirectionDown)) {
+        NSLog(@"Swipe down.");
+    }
+}
 
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */

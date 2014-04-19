@@ -10,6 +10,7 @@
 #import <SpriteKit/SpriteKit.h>
 #import <CoreMotion/CoreMotion.h>
 #import "TitleViewController.h"
+#import "MyScene.h"
 
 // Motion Variables
 double currentMaxAccelX;
@@ -40,5 +41,5 @@ double currentMaxRotZ;
 @property (strong, nonatomic) IBOutlet UILabel *maxRotZ;
 //- (IBAction)resetMaxValues:(id)sender;
 @property (strong, nonatomic) CMMotionManager *motionManager;
-
+-(void)swipeHandler:(UISwipeGestureRecognizer *)recognizer;
 @end

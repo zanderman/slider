@@ -10,6 +10,7 @@
 #import "MyScene.h"
 
 @implementation ViewController
+MyScene *obj; // Declare MyScene object.
 
 - (void)viewDidLoad
 {
@@ -24,7 +25,10 @@
     // Create and configure the scene.
     SKScene * scene = [MyScene sceneWithSize:skView.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
-    [MyScene setMyStaticVar:self];
+    
+    // Configure delegate
+    obj = scene;
+    [obj setDelegate:self];
     
     // Present the scene.
     [skView presentScene:scene];
@@ -32,33 +36,51 @@
     
     CGPointMake(2,3);
     
+    // swipe gesture variable
+    UISwipeGestureRecognizer *left_gesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
+    UISwipeGestureRecognizer *right_gesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
+    UISwipeGestureRecognizer *up_gesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
+    UISwipeGestureRecognizer *down_gesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
     
-    // Motion
-    currentMaxAccelX = 0;
-    currentMaxAccelY = 0;
-    currentMaxAccelZ = 0;
-    currentMaxRotX = 0;
-    currentMaxRotY = 0;
-    currentMaxRotZ = 0;
-    self.motionManager = [[CMMotionManager alloc] init];
-    self.motionManager.accelerometerUpdateInterval = .2;
-    self.motionManager.gyroUpdateInterval = .2;
+    // initialize gesture directions.
+    [left_gesture setDirection:(UISwipeGestureRecognizerDirectionLeft)];
+    [right_gesture setDirection:(UISwipeGestureRecognizerDirectionRight)];
+    [up_gesture setDirection:(UISwipeGestureRecognizerDirectionUp)];
+    [down_gesture setDirection:(UISwipeGestureRecognizerDirectionDown)];
     
-    //
-    [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
-    withHandler:^(CMAccelerometerData  *accelerometerData, NSError *error) {
-        [self outputAccelertionData:accelerometerData.acceleration];
-        if(error){
-            NSLog(@"%@", error);
-        }
-        }];
     
-    [self.motionManager startGyroUpdatesToQueue:[NSOperationQueue currentQueue]
-    withHandler:^(CMGyroData *gyroData, NSError *error) {
-        [self outputRotationData:gyroData.rotationRate];
-        }];
-
-    //
+    // Set as gesture possibility for the main view window.
+    [self.view addGestureRecognizer:left_gesture];
+    [self.view addGestureRecognizer:right_gesture];
+    [self.view addGestureRecognizer:up_gesture];
+    [self.view addGestureRecognizer:down_gesture];
+    
+//    // Motion
+//    currentMaxAccelX = 0;
+//    currentMaxAccelY = 0;
+//    currentMaxAccelZ = 0;
+//    currentMaxRotX = 0;
+//    currentMaxRotY = 0;
+//    currentMaxRotZ = 0;
+//    self.motionManager = [[CMMotionManager alloc] init];
+//    self.motionManager.accelerometerUpdateInterval = .2;
+//    self.motionManager.gyroUpdateInterval = .2;
+//    
+//    //
+//    [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
+//    withHandler:^(CMAccelerometerData  *accelerometerData, NSError *error) {
+//        [self outputAccelertionData:accelerometerData.acceleration];
+//        if(error){
+//            NSLog(@"%@", error);
+//        }
+//        }];
+//    
+//    [self.motionManager startGyroUpdatesToQueue:[NSOperationQueue currentQueue]
+//    withHandler:^(CMGyroData *gyroData, NSError *error) {
+//        [self outputRotationData:gyroData.rotationRate];
+//        }];
+//
+//    //
     
 }
 
@@ -147,6 +169,11 @@
 {
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
+}
+
+// Handle all swipe events.
+-(void)swipeHandler:(UISwipeGestureRecognizer *)recognizer {
+    [obj moveCharacter:recognizer]; // Call MyScene method.
 }
 
 @end
