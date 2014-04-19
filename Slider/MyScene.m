@@ -29,11 +29,16 @@
         //myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
         //                              CGRectGetMidY(self.frame));
         
+        self.physicsWorld.contactDelegate = self;
+        
         [self addChild:myLabel];
         
         // Character in the game.
         self.player = [SKSpriteNode spriteNodeWithImageNamed:@"player"];
         self.player.position = CGPointMake(CGRectGetMidX(self.frame), 50);
+        self.player.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.player.frame.size];
+        self.player.physicsBody.restitution = 0.1f;
+        self.player.physicsBody.friction = 0.4f;
         [self.player setScale:0.1];
         
         [self addChild:self.player];
@@ -61,7 +66,14 @@
             // make physicsBody static
             iceBlock.physicsBody.dynamic = NO;
         }
+        
 
+
+        // Create physics.
+//        self.player.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.player.size];
+//        self.player.physicsBody.dynamic = YES;
+//        self.player.physicsBody.
+//        SKAction *move_up = [SKAction move];
     }
     return self;
 }
