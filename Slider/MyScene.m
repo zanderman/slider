@@ -74,9 +74,9 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 }
 -(SKSpriteNode*)buildIceBlock
 {
-    CGSize blockSize = CGSizeMake(20, 20);
+    CGSize blockSize = CGSizeMake(20, 30);
     
-    SKSpriteNode* iceBlock = [[SKSpriteNode alloc] initWithImageNamed: @"ice-icon.png"];
+    SKSpriteNode* iceBlock = [[SKSpriteNode alloc] initWithImageNamed: @"raindrop.png"];
     [iceBlock setSize:blockSize];
     [self addChild:iceBlock];
     iceBlock.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:iceBlock.frame.size];
