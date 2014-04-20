@@ -7,7 +7,6 @@
 //
 
 #import "MyScene.h"
-#import "TitleViewController.h"
 //#import "ViewController.h"
 #include <QuartzCore/QuartzCore.h>
 #include <stdlib.h>
@@ -295,10 +294,12 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         [self.player removeAllActions];
         
         SKAction *pulseRed = [SKAction sequence:@[
+//        [SKAction rotateByAngle:1.0f duration:0.3],
           [SKAction colorizeWithColor:[SKColor redColor] colorBlendFactor:1.0 duration:0.15],
           [SKAction waitForDuration:0.1],
-          [SKAction colorizeWithColorBlendFactor:0.0 duration:0.15]]];
-          //[SKAction rotateByAngle:1.0f duration:0.5]]];
+          [SKAction colorizeWithColorBlendFactor:0.0 duration:0.15],
+          ]];
+        
         [self.player runAction: pulseRed];
         life--;
         // Remove a honeycomb

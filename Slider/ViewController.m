@@ -9,7 +9,6 @@
 #import "ViewController.h"
 #import "MyScene.h"
 //#import "CustomAlertViewController.m"
-#import "TitleViewController.h"
 
 // Interface
 @interface ViewController ()
@@ -20,7 +19,6 @@
 // Implementation
 @implementation ViewController
 MyScene *obj; // Declare MyScene object.
-TitleViewController *tv;
 UIViewController *uivc;
 @synthesize titleViewDelegate;
 
@@ -28,6 +26,7 @@ UIViewController *uivc;
 {
     [super viewDidLoad];
 
+    
     // Configure the view.
     SKView * skView = (SKView *)self.view;
     uivc = self;
@@ -96,13 +95,13 @@ UIViewController *uivc;
     
     
 //    // Motion
-    for (UIViewController *vc in [self childViewControllers]) {
-        if([vc isKindOfClass:[TitleViewController class]]){
-            tv = (TitleViewController *)vc; //Example & reminder to cast your reference
-        }
-    }
-    [tv setDelegate:self];
-    [obj buildIceBlock];
+//    for (UIViewController *vc in [self childViewControllers]) {
+//        if([vc isKindOfClass:[TitleViewController class]]){
+//            tv = (TitleViewController *)vc; //Example & reminder to cast your reference
+//        }
+//    }
+//    [tv setDelegate:self];
+    //[obj buildIceBlock];
     //  f  // Motion
 //    currentMaxAccelX = 0;
 //    currentMaxAccelY = 0;
@@ -135,7 +134,7 @@ UIViewController *uivc;
 -(void)updateLabel
 {
     NSLog(@"LOL2");
-    [tv updateLabel];
+//    [tv updateLabel];
 }
 
 // Methods for getting the data.

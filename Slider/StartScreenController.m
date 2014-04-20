@@ -1,25 +1,23 @@
 //
-//  TitleViewController.m
+//  StartScreenController.m
 //  Slider
 //
-//  Created by Grant Spence on 4/19/14.
+//  Created by Grant Spence on 4/20/14.
 //  Copyright (c) 2014 Grant Spence. All rights reserved.
 //
 
-#import "TitleViewController.h"
-
-@interface TitleViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *pointsLabel;
+#import "StartScreenController.h"
+#import "MyScene.h"
+@interface StartScreenController ()
 
 @end
 
-@implementation TitleViewController
+@implementation StartScreenController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
         
     }
     return self;
@@ -28,8 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,11 +35,6 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)updateLabel
-{
-    NSLog(@"Lol");
-    _pointsLabel.text = @"Test";
-}
 /*
 #pragma mark - Navigation
 
