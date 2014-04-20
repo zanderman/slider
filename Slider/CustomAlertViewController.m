@@ -132,7 +132,7 @@
     [_btnOK setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
     [_scoreMessage setTextColor:[UIColor whiteColor]];
     [_winloseMessage setTextColor:[UIColor whiteColor]];
-    [_resultImage setImage:[UIImage imageNamed:@"Bee.png"]];
+    [_resultImage setImage:[UIImage imageNamed:@"bee_new.png"]];
     _resultImage.transform = CGAffineTransformMakeRotation(M_PI_4);
     
     // Animate the display of the message view.
