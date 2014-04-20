@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ViewController.h"
+#import "MyScene.h"
 
-@interface TitleViewController : UIViewController<ViewControllerDelegate>
+
+@interface TitleViewController : UIViewController<TitleViewDelegate>
+@property id<TitleViewDelegate> delegate;
 
 @end

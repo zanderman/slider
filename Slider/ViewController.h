@@ -6,18 +6,17 @@
 //  Copyright (c) 2014 Grant Spence. All rights reserved.
 //
 
-
-@protocol ViewControllerDelegate<NSObject>
+@protocol TitleViewDelegate
 @required
 -(void) updateLabel;
 @end
 
-
+#import "MyScene.h"
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
 #import <CoreMotion/CoreMotion.h>
 #import "TitleViewController.h"
-#import "MyScene.h"
+
 
 // Motion Variables
 double currentMaxAccelX;
@@ -27,7 +26,7 @@ double currentMaxRotX;
 double currentMaxRotY;
 double currentMaxRotZ;
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<SKPhysicsContactDelegate>
 
 // Motion
 @property (strong, nonatomic) IBOutlet UILabel *accX;
@@ -50,6 +49,6 @@ double currentMaxRotZ;
 @property (strong, nonatomic) CMMotionManager *motionManager;
 -(void)swipeHandler:(UISwipeGestureRecognizer *)recognizer;
 
-@property (nonatomic, retain) id <ViewControllerDelegate> viewControllerDelegate;
-
+@property (nonatomic, weak) id <TitleViewDelegate> titleViewDelegate;
+@property id<ViewControllerDelegate> delegate;
 @end
