@@ -18,6 +18,7 @@
 #import <CoreMotion/CoreMotion.h>
 #import "TitleViewController.h"
 #import "MyScene.h"
+#import "CustomAlertViewController.h"
 
 // Motion Variables
 double currentMaxAccelX;
@@ -27,7 +28,7 @@ double currentMaxRotX;
 double currentMaxRotY;
 double currentMaxRotZ;
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<CustomAlertViewControllerDelegate>
 
 // Motion
 @property (strong, nonatomic) IBOutlet UILabel *accX;
@@ -47,6 +48,7 @@ double currentMaxRotZ;
 @property (strong, nonatomic) IBOutlet UILabel *maxRotZ;
 
 //- (IBAction)resetMaxValues:(id)sender;
+@property (nonatomic, strong) CustomAlertViewController *customAlert; // Ending popup window.
 @property (strong, nonatomic) CMMotionManager *motionManager;
 -(void)swipeHandler:(UISwipeGestureRecognizer *)recognizer;
 

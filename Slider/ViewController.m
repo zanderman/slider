@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "MyScene.h"
+//#import "CustomAlertViewController.m"
 
 @implementation ViewController
 MyScene *obj; // Declare MyScene object.
@@ -28,15 +29,32 @@ MyScene *obj; // Declare MyScene object.
     SKScene * scene = [MyScene sceneWithSize:skView.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
-    // Configure delegate
-    obj = scene;
-    [obj setDelegate:self];
+    
+    
+    
+    // INitialize the custom view.
+    _customAlert = [[CustomAlertViewController alloc] init];
+    [_customAlert setDelegate:self];
+    [_customAlert showCustomAlertInView:self.view withMessage:@"Score: ???":@"WIN!"];
+    
+    
+    
     
     // Present the scene.
     [skView presentScene:scene];
     skView.bounds.size.width;
     
+    
+    
+    
+    // Configure delegate
+    obj = scene;
+    [obj setDelegate:self];
     CGPointMake(2,3);
+    
+    
+    
+    
     
     // swipe gesture variable
     UISwipeGestureRecognizer *left_gesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
@@ -180,6 +198,7 @@ MyScene *obj; // Declare MyScene object.
 
 // Handle all swipe events.
 -(void)swipeHandler:(UISwipeGestureRecognizer *)recognizer {
+//    [skView presentScene:scene];
     [obj moveCharacter:recognizer]; // Call MyScene method.
     [viewControllerDelegate updateLabel];
 }
