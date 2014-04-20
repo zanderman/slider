@@ -255,7 +255,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     
     // Character in the game.
     self.player = [SKSpriteNode spriteNodeWithImageNamed:@"bee.png"];
-    self.player.position = CGPointMake(CGRectGetMidX(self.frame), 150);
+    self.player.position = CGPointMake(CGRectGetMidX(self.frame), 200);
 
     self.player.physicsBody.restitution = 0.1f;
     self.player.physicsBody.friction = 0.4f;
@@ -443,8 +443,9 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     levelLabel.text = string2;
     
     [_blocks removeAllObjects];
-    self.player.position = CGPointMake(CGRectGetMidX(self.frame), 150);
+    self.player.position = CGPointMake(CGRectGetMidX(self.frame), 200);
     [_viewController removeResultScreen];
+    [self.player removeAllActions];
     activeGame = true;
 }
 
