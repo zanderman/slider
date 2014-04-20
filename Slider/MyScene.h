@@ -19,6 +19,7 @@
 
 
 @interface MyScene : SKScene
+
 -(void)buildLevel1;
 @property id<MySceneDelagate> delegate;
 -(SKSpriteNode*)buildIceBlock;
@@ -29,4 +30,7 @@
 -(void)initalizingScrollingBackground;
 @property (nonatomic, weak) id <ViewControllerDelegate> viewControllerDelegate;
 -(SKSpriteNode*)buildHoneyComb;
+-(SKSpriteNode*)buildFlower;
+-(void)resetGame;
+
 @end

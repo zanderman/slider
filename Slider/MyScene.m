@@ -26,7 +26,12 @@ NSTimeInterval _lastUpdateTime;
 NSTimeInterval _dt;
 NSTimeInterval _lastMissileAdded;
 
-static const uint32_t penguinCategory     =  0x1 << 0;
+static const uint32_t beeCategory     =  0x1 << 0;
+static const uint32_t honeyCombCategory    =  0x1 << 1;
+static const uint32_t rainCategory    =  0x1 << 2;
+static const uint32_t wallCategory    =  0x1 << 3;
+static const uint32_t flowerCategory    =  0x1 << 4;
+
 SKLabelNode *pointsLabel;
 SKLabelNode *levelLabel;
 SKSpriteNode *honey1;
@@ -35,10 +40,14 @@ SKSpriteNode *honey3;
 int life = 3;
 int points = 0;
 
+bool activeGame = true;
+
 // Variables for drop timing
 int dropDelay = 40;
 int dropIndex = 0;
 
+int waterDropsFallen = 0;
+int level = 1;
 
 static const float BG_VELOCITY = 100.0;
 
@@ -78,11 +87,14 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         float gameHeight = height - 60;
         
         // Set up physics for the scene
-        self.physicsWorld.gravity = CGVectorMake(0,-1);
+        self.physicsWorld.gravity = CGVectorMake(0,-0.1f);
         self.physicsWorld.contactDelegate = self;
         
         self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:CGRectMake(0, 0, width, gameHeight)];
         self.physicsBody.friction = 10.0f;
+        self.physicsBody.collisionBitMask = beeCategory;
+        self.physicsBody.contactTestBitMask = beeCategory;
+        self.physicsBody.categoryBitMask = wallCategory;
         
         _blocks = [[NSMutableArray alloc] init];
         
@@ -138,6 +150,9 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     iceBlock.physicsBody.friction = 10.0f;
     // make physicsBody static
     iceBlock.physicsBody.dynamic = NO;
+    iceBlock.physicsBody.categoryBitMask = rainCategory;
+    iceBlock.physicsBody.collisionBitMask = rainCategory | beeCategory;
+    iceBlock.physicsBody.contactTestBitMask = rainCategory;
     return iceBlock;
 }
 
@@ -148,13 +163,39 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     SKSpriteNode* honeyComb = [[SKSpriteNode alloc] initWithImageNamed: @"honey2.png"];
     [honeyComb setSize:blockSize];
     [self addChild:honeyComb];
- //   honeyComb.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:honeyComb.frame.size.width-10];
-//    
-//    honeyComb.physicsBody.restitution = 0.0f;
-//    honeyComb.physicsBody.friction = 10.0f;
-//    // make physicsBody static
-//    honeyComb.physicsBody.dynamic = NO;
+    honeyComb.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:honeyComb.frame.size.width-10];
+    
+    honeyComb.physicsBody.restitution = 0.0f;
+    honeyComb.physicsBody.friction = 10.0f;
+    
+    // make physicsBody static
+    honeyComb.physicsBody.dynamic = NO;
+    
+    honeyComb.physicsBody.categoryBitMask  = honeyCombCategory;
+    honeyComb.physicsBody.collisionBitMask = honeyCombCategory | beeCategory;
+    honeyComb.physicsBody.contactTestBitMask = honeyCombCategory | beeCategory;
     return honeyComb;
+}
+
+-(SKSpriteNode*)buildFlower
+{
+    CGSize blockSize = CGSizeMake(30, 30);
+    
+    SKSpriteNode* flower = [[SKSpriteNode alloc] initWithImageNamed: @"flower.png"];
+    [flower setSize:blockSize];
+    [self addChild:flower];
+    flower.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:flower.frame.size.width-10];
+    
+    flower.physicsBody.restitution = 0.0f;
+    flower.physicsBody.friction = 10.0f;
+    
+    // make physicsBody static
+    flower.physicsBody.dynamic = NO;
+    
+    flower.physicsBody.categoryBitMask  = flowerCategory;
+    flower.physicsBody.collisionBitMask = flowerCategory | beeCategory;
+    flower.physicsBody.contactTestBitMask = flowerCategory | beeCategory;
+    return flower;
 }
 
 -(void)buildLevel1
@@ -228,31 +269,97 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 //    self.player.physicsBody.friction = 0.4f;
     self.player.physicsBody.dynamic = YES;
     
-    self.player.physicsBody.categoryBitMask = penguinCategory;
-    self.player.physicsBody.collisionBitMask = penguinCategory;
-    self.player.physicsBody.contactTestBitMask = penguinCategory;
-
+    self.player.physicsBody.categoryBitMask = beeCategory;
+    self.player.physicsBody.collisionBitMask = rainCategory;
+    self.player.physicsBody.contactTestBitMask = rainCategory | beeCategory;
 }
 
 - (void)didBeginContact:(SKPhysicsContact *)contact
 {
+    // Set the physics bodys collision
+    SKPhysicsBody *firstBody, *secondBody;
+    if (contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask)
+    {
+        firstBody = contact.bodyA;
+        secondBody = contact.bodyB;
+    }
+    else
+    {
+        firstBody = contact.bodyB;
+        secondBody = contact.bodyA;
+    }
     
-    [self.player removeAllActions];
-    life--;
-    // Remove a honeycomb
+    // Contact with a raindrop
+    if ( (secondBody.categoryBitMask & rainCategory )!= 0) {
+        NSLog(@"Rain");
+        [self.player removeAllActions];
+        
+        SKAction *pulseRed = [SKAction sequence:@[
+          [SKAction colorizeWithColor:[SKColor redColor] colorBlendFactor:1.0 duration:0.15],
+          [SKAction waitForDuration:0.1],
+          [SKAction colorizeWithColorBlendFactor:0.0 duration:0.15]]];
+          //[SKAction rotateByAngle:1.0f duration:0.5]]];
+        [self.player runAction: pulseRed];
+        life--;
+        // Remove a honeycomb
+        if ( life == 2 ) {
+            honey3.hidden = YES;
+        }
+        else if ( life == 1) {
+            honey2.hidden = YES;
+        }
+        else if ( life == 0) {
+            honey1.hidden = YES;
+            NSString *scoreString = [NSString stringWithFormat:@"Score: %d", points];
+            [_viewController showResultScreen:scoreString:@"       LOSE!"];
+        }
+        
+        NSLog(@"Contact, Life: %d",life);
+    }
+    // Contact with a honeycomb
+    else if ( (secondBody.categoryBitMask & honeyCombCategory )!= 0) {
+        NSLog(@"Honey");
+        SKSpriteNode *comb = secondBody.node;
+        SKAction *pulseGreen = [SKAction sequence:@[
+              [SKAction colorizeWithColor:[SKColor greenColor] colorBlendFactor:1.0 duration:0.15],
+              [SKAction waitForDuration:0.1],
+              [SKAction colorizeWithColorBlendFactor:0.0 duration:0.15]]];
+        [self.player runAction: pulseGreen];
+        
+        life++;
+        
+        // Restore lives
+        if ( life == 1 ) {
+            honey1.hidden = NO;
+        }
+        else if ( life == 2) {
+            honey2.hidden = NO;
+        }
+        else if ( life == 3) {
+            honey3.hidden = NO;
+        }
+        
+        // Make it disappear
+        [comb removeFromParent];
+        [_blocks removeObject:comb];
+    }
+    // Contact with a honeycomb
+    else if ( (secondBody.categoryBitMask & flowerCategory )!= 0) {
+        NSLog(@"Flower");
+        SKSpriteNode *flower = secondBody.node;
+        
+        points += 100;
+        
+        NSString *string = [NSString stringWithFormat:@"Points: %d",points];
+        pointsLabel.text = string;
+        
+        // Make it disappear
+        [flower removeFromParent];
+        [_blocks removeObject:flower];
+    }
 
-    if ( life == 2 ) {
-        honey3.hidden = YES;
-    }
-    else if ( life == 1) {
-        honey2.hidden = YES;
-    }
-    else if ( life == 0) {
-        honey1.hidden = YES;
-        NSString *scoreString = [NSString stringWithFormat:@"Score: %d", points];
-        [_viewController showResultScreen:scoreString:@"       LOSE!"];
-    }
-    NSLog(@"Contact, Life: %d",life);
+
+
 }
 
 // Touch event.
@@ -263,6 +370,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         // Move penguin.
         CGPoint location = [touch locationInNode:self];
         SKAction *action = [SKAction moveTo:location duration:0.5f];
+        [self.player runAction:action];
         
         // Alert popup.
 //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Title" message:@"Message" delegate:self cancelButtonTitle:@"Continue" otherButtonTitles: nil];
@@ -285,6 +393,32 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     }
 }
 
+-(void)resetGame
+{
+    // Iterate through blocks
+    for (SKSpriteNode *obj in _blocks) {
+        if ( [obj isKindOfClass:[SKSpriteNode class]]) {
+            obj.removeFromParent;
+        }
+    }
+    
+    // Reset variables
+    points = 0;
+    level = 1;
+    dropDelay = 40;
+    life = 3;
+    dropIndex = 0;
+    waterDropsFallen = 0;
+    activeGame = true;
+    
+    // Reset Labels
+    NSString *string = [NSString stringWithFormat:@"Points: %d",points];
+    pointsLabel.text = string;
+    NSString *string2 = [NSString stringWithFormat:@"Level: %d",level];
+    levelLabel.text = string2;
+    
+    [_blocks removeAllObjects];
+}
 
 // Handle swipe gesture.
 -(void)moveCharacter:(UISwipeGestureRecognizer *)recognizer {
@@ -317,11 +451,12 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 
 -(void)update:(NSTimeInterval)currentTime
 {
-    if (_lastUpdateTime)
+    if (_lastUpdateTime && activeGame)
     {
         if ( _player.position.y <= 0 ) {
             NSString *scoreString = [NSString stringWithFormat:@"Score: %d", points];
             [_viewController showResultScreen:scoreString:@"       LOSE!"];
+            activeGame = false;
         }
         
         _dt = currentTime - _lastUpdateTime;
@@ -334,10 +469,22 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
                 obj.position = CGPointMake(obj.position.x, obj.position.y-1);
                 
                 // When a block has gone offscreen
-                if (obj.position.y <= 0) {
+                if (obj.position.y <= 0 && (obj.physicsBody.categoryBitMask & rainCategory) != 0 ) {
                     [discardedItems addObject:obj]; // Add to discarding array
                     obj.removeFromParent;
                     
+                    // Every 10 water drops
+                    waterDropsFallen++;
+                    if ( waterDropsFallen % 10 == 0 ) {
+                        // Get faster
+                        if ( dropDelay >=0 )
+                            dropDelay -= 5;
+                        
+                        level++;
+                        NSString *string = [NSString stringWithFormat:@"Level: %d",level];
+                        levelLabel.text = string;
+                        
+                    }
                     points++; // 1 More point
                     NSString *string = [NSString stringWithFormat:@"Points: %d",points];
                     pointsLabel.text = string;
@@ -350,9 +497,12 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 	        for (int i=0; i<1; i++) {
 	            int typeOfBlock = (arc4random() % 100);
 	            SKSpriteNode *node;
-	            if ( typeOfBlock < 10 ) {
-	                node = [self buildHoneyComb];
-	                
+	            if ( typeOfBlock < 10   ) {
+                    if ( typeOfBlock < 5 ) {
+                        node = [self buildFlower];
+                    } else {
+                        node = [self buildHoneyComb];
+                    }
 	            } else {
 	                
 	                // New icebock in a random spot, but at the top
