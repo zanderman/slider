@@ -21,10 +21,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-       
         // Allocate space for the scene variable.
         _scene = [[MyScene alloc] init];
-        
         
         // Custom initialization
         [self.view setBackgroundColor:[UIColor  colorWithRed:0 green:0 blue:0 alpha:0]];

@@ -298,6 +298,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
           [SKAction colorizeWithColor:[SKColor redColor] colorBlendFactor:1.0 duration:0.15],
           [SKAction waitForDuration:0.1],
           [SKAction colorizeWithColorBlendFactor:0.0 duration:0.15]]];
+          //[SKAction rotateByAngle:1.0f duration:0.5]]];
         [self.player runAction: pulseRed];
         life--;
         // Remove a honeycomb
@@ -309,7 +310,8 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         }
         else if ( life == 0) {
             honey1.hidden = YES;
-            activeGame = false;
+            NSString *scoreString = [NSString stringWithFormat:@"Score: %d", points];
+            [_viewController showResultScreen:scoreString:@"       LOSE!"];
         }
         
         NSLog(@"Contact, Life: %d",life);
@@ -399,6 +401,22 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
             obj.removeFromParent;
         }
     }
+    
+    // Reset variables
+    points = 0;
+    level = 1;
+    dropDelay = 40;
+    life = 3;
+    dropIndex = 0;
+    waterDropsFallen = 0;
+    activeGame = true;
+    
+    // Reset Labels
+    NSString *string = [NSString stringWithFormat:@"Points: %d",points];
+    pointsLabel.text = string;
+    NSString *string2 = [NSString stringWithFormat:@"Level: %d",level];
+    levelLabel.text = string2;
+    
     [_blocks removeAllObjects];
 }
 
@@ -436,6 +454,8 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     if (_lastUpdateTime && activeGame)
     {
         if ( _player.position.y <= 0 ) {
+            NSString *scoreString = [NSString stringWithFormat:@"Score: %d", points];
+            [_viewController showResultScreen:scoreString:@"       LOSE!"];
             activeGame = false;
         }
         
