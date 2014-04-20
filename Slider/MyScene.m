@@ -134,6 +134,8 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         [honey3 setPosition:CGPointMake(CGRectGetMidX(self.frame)-25, self.frame.size.height-34)];
         [honey3 setSize:CGSizeMake(30, 30)];
         [self addChild:honey3];
+        
+        
     }
     return self;
 }
@@ -313,7 +315,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         else if ( life == 0) {
             honey1.hidden = YES;
             NSString *scoreString = [NSString stringWithFormat:@"Score: %d", points];
-            [_viewController showResultScreen:scoreString:@"       LOSE!"];
+            [_viewController showResultScreen:scoreString:@"YOU LOSE!"];
             activeGame = false;
             isEnd = true;
 //            [self resetGame];
@@ -481,7 +483,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     {
         if ( _player.position.y <= 0 ) {
             NSString *scoreString = [NSString stringWithFormat:@"Score: %d", points];
-            [_viewController showResultScreen:scoreString:@"       LOSE!"];
+            [_viewController showResultScreen:scoreString:@"YOU LOSE!"];
             activeGame = false;
             isEnd = true;
 //            [self resetGame];
