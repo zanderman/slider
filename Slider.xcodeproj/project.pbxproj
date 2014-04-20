@@ -16,6 +16,7 @@
 		0915466D1903946A00B0095E /* honey2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0915466C1903946A00B0095E /* honey2.png */; };
 		0915466F1903976500B0095E /* honey.png in Resources */ = {isa = PBXBuildFile; fileRef = 0915466E1903976500B0095E /* honey.png */; };
 		091546721903C40D00B0095E /* StartScreenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 091546711903C40D00B0095E /* StartScreenController.m */; };
+		091546741903D0F500B0095E /* splashMain.png in Resources */ = {isa = PBXBuildFile; fileRef = 091546731903D0F500B0095E /* splashMain.png */; };
 		09A21B0B19021B330098CFE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A21B0A19021B330098CFE3 /* Foundation.framework */; };
 		09A21B0D19021B330098CFE3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A21B0C19021B330098CFE3 /* CoreGraphics.framework */; };
 		09A21B0F19021B330098CFE3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A21B0E19021B330098CFE3 /* UIKit.framework */; };
@@ -62,6 +63,7 @@
 		0915466E1903976500B0095E /* honey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = honey.png; sourceTree = "<group>"; };
 		091546701903C40D00B0095E /* StartScreenController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartScreenController.h; path = Slider/StartScreenController.h; sourceTree = "<group>"; };
 		091546711903C40D00B0095E /* StartScreenController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartScreenController.m; path = Slider/StartScreenController.m; sourceTree = "<group>"; };
+		091546731903D0F500B0095E /* splashMain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splashMain.png; path = ../splashMain.png; sourceTree = "<group>"; };
 		09983A1819034F1C0023CFCD /* Bee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bee.png; sourceTree = "<group>"; };
 		09A21B0719021B330098CFE3 /* Slider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09A21B0A19021B330098CFE3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -165,6 +167,7 @@
 		09A21B1219021B330098CFE3 /* Slider */ = {
 			isa = PBXGroup;
 			children = (
+				091546731903D0F500B0095E /* splashMain.png */,
 				048EB51E19036F6300FFD1BE /* Custom Alert View */,
 				09983A1819034F1C0023CFCD /* Bee.png */,
 				0915466E1903976500B0095E /* honey.png */,
@@ -313,6 +316,7 @@
 				0915466F1903976500B0095E /* honey.png in Resources */,
 				0915466B1903936C00B0095E /* flower.png in Resources */,
 				0915466D1903946A00B0095E /* honey2.png in Resources */,
+				091546741903D0F500B0095E /* splashMain.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
