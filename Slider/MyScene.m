@@ -484,7 +484,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     {
         if ( _player.position.y <= 0 ) {
             NSString *scoreString = [NSString stringWithFormat:@"Score: %d", points];
-            [_viewController showResultScreen:scoreString:@"       LOSE!"];
+            [_viewController showResultScreen:scoreString:@" You Lose!"];
             activeGame = false;
             isEnd = true;
 //            [self resetGame];
