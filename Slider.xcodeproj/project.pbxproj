@@ -30,6 +30,7 @@
 		09A21B531902374C0098CFE3 /* Borders.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A21B521902374C0098CFE3 /* Borders.m */; };
 		09A21B5619024D930098CFE3 /* TitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A21B5519024D930098CFE3 /* TitleViewController.m */; };
 		09A6EFED19030DE8008644DE /* Ice-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 09A6EFEC19030DE8008644DE /* Ice-icon.png */; };
+		09A6EFEF1903407A008644DE /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 09A6EFEE1903407A008644DE /* bg.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		09A21B5419024D930098CFE3 /* TitleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleViewController.h; sourceTree = "<group>"; };
 		09A21B5519024D930098CFE3 /* TitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleViewController.m; sourceTree = "<group>"; };
 		09A6EFEC19030DE8008644DE /* Ice-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ice-icon.png"; sourceTree = "<group>"; };
+		09A6EFEE1903407A008644DE /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 		09A21B1219021B330098CFE3 /* Slider */ = {
 			isa = PBXGroup;
 			children = (
+				09A6EFEE1903407A008644DE /* bg.png */,
 				09A6EFEC19030DE8008644DE /* Ice-icon.png */,
 				09A21B5419024D930098CFE3 /* TitleViewController.h */,
 				09A21B5519024D930098CFE3 /* TitleViewController.m */,
@@ -264,6 +267,7 @@
 			files = (
 				09A21B2B19021B330098CFE3 /* Spaceship.png in Resources */,
 				09A21B2D19021B330098CFE3 /* Images.xcassets in Resources */,
+				09A6EFEF1903407A008644DE /* bg.png in Resources */,
 				09A21B4E190229600098CFE3 /* player.png in Resources */,
 				09A21B2319021B330098CFE3 /* Main_iPad.storyboard in Resources */,
 				09A21B50190231860098CFE3 /* iceBlock.PNG in Resources */,

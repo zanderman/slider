@@ -19,4 +19,5 @@
 -(SKSpriteNode*)buildIceBlock;
 -(void)createCharacter;
 -(void)moveCharacter:(UISwipeGestureRecognizer *)recognizer;
+-(void)initalizingScrollingBackground;
 @end
