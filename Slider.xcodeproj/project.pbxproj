@@ -10,6 +10,7 @@
 		048EB51B1903505500FFD1BE /* raindrop.png in Resources */ = {isa = PBXBuildFile; fileRef = 048EB51A1903505500FFD1BE /* raindrop.png */; };
 		048EB52219036FC200FFD1BE /* CustomAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048EB52019036FC200FFD1BE /* CustomAlertViewController.m */; };
 		048EB52319036FC200FFD1BE /* CustomAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048EB52119036FC200FFD1BE /* CustomAlertViewController.xib */; };
+		09125BE41903F9C700714A06 /* bee_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 09125BE31903F9C700714A06 /* bee_new.png */; };
 		09154665190383F000B0095E /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 09154664190383F000B0095E /* bg.jpg */; };
 		091546671903916C00B0095E /* honeycomb-hi.png in Resources */ = {isa = PBXBuildFile; fileRef = 091546661903916C00B0095E /* honeycomb-hi.png */; };
 		0915466B1903936C00B0095E /* flower.png in Resources */ = {isa = PBXBuildFile; fileRef = 0915466A1903936C00B0095E /* flower.png */; };
@@ -54,6 +55,7 @@
 		048EB51F19036FC200FFD1BE /* CustomAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlertViewController.h; sourceTree = "<group>"; };
 		048EB52019036FC200FFD1BE /* CustomAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlertViewController.m; sourceTree = "<group>"; };
 		048EB52119036FC200FFD1BE /* CustomAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomAlertViewController.xib; sourceTree = "<group>"; };
+		09125BE31903F9C700714A06 /* bee_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bee_new.png; sourceTree = "<group>"; };
 		09154664190383F000B0095E /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
 		091546661903916C00B0095E /* honeycomb-hi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "honeycomb-hi.png"; sourceTree = "<group>"; };
 		0915466A1903936C00B0095E /* flower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flower.png; sourceTree = "<group>"; };
@@ -64,7 +66,6 @@
 		091546731903D0F500B0095E /* splashMain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splashMain.png; path = ../splashMain.png; sourceTree = "<group>"; };
 		091546791903DF1200B0095E /* bumblebee.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bumblebee.caf; sourceTree = "<group>"; };
 		0915467A1903F54100B0095E /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
-		09983A1819034F1C0023CFCD /* Bee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bee.png; sourceTree = "<group>"; };
 		09A21B0719021B330098CFE3 /* Hapbee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hapbee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09A21B0A19021B330098CFE3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		09A21B0C19021B330098CFE3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -165,10 +166,10 @@
 		09A21B1219021B330098CFE3 /* Slider */ = {
 			isa = PBXGroup;
 			children = (
+				09125BE31903F9C700714A06 /* bee_new.png */,
 				091546791903DF1200B0095E /* bumblebee.caf */,
 				091546731903D0F500B0095E /* splashMain.png */,
 				048EB51E19036F6300FFD1BE /* Custom Alert View */,
-				09983A1819034F1C0023CFCD /* Bee.png */,
 				0915466E1903976500B0095E /* honey.png */,
 				0915466C1903946A00B0095E /* honey2.png */,
 				0915466A1903936C00B0095E /* flower.png */,
@@ -298,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09154665190383F000B0095E /* bg.jpg in Resources */,
+				09125BE41903F9C700714A06 /* bee_new.png in Resources */,
 				048EB51B1903505500FFD1BE /* raindrop.png in Resources */,
 				091546671903916C00B0095E /* honeycomb-hi.png in Resources */,
 				09A21B2D19021B330098CFE3 /* Images.xcassets in Resources */,

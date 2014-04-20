@@ -256,7 +256,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 {
     
     // Character in the game.
-    self.player = [SKSpriteNode spriteNodeWithImageNamed:@"bee.png"];
+    self.player = [SKSpriteNode spriteNodeWithImageNamed:@"bee_new.png"];
     self.player.position = CGPointMake(CGRectGetMidX(self.frame), 200);
 
     self.player.physicsBody.restitution = 0.1f;
