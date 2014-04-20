@@ -12,6 +12,8 @@
 @implementation ViewController
 MyScene *obj; // Declare MyScene object.
 
+@synthesize viewControllerDelegate;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -156,11 +158,6 @@ MyScene *obj; // Declare MyScene object.
 
 
 
-
-
-
-
-
 - (BOOL)shouldAutorotate
 {
     return YES;
@@ -184,6 +181,7 @@ MyScene *obj; // Declare MyScene object.
 // Handle all swipe events.
 -(void)swipeHandler:(UISwipeGestureRecognizer *)recognizer {
     [obj moveCharacter:recognizer]; // Call MyScene method.
+    [viewControllerDelegate updateLabel];
 }
 
 @end

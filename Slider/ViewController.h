@@ -6,6 +6,13 @@
 //  Copyright (c) 2014 Grant Spence. All rights reserved.
 //
 
+
+@protocol ViewControllerDelegate<NSObject>
+@required
+-(void) updateLabel;
+@end
+
+
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
 #import <CoreMotion/CoreMotion.h>
@@ -19,7 +26,6 @@ double currentMaxAccelZ;
 double currentMaxRotX;
 double currentMaxRotY;
 double currentMaxRotZ;
-
 
 @interface ViewController : UIViewController
 
@@ -39,7 +45,11 @@ double currentMaxRotZ;
 @property (strong, nonatomic) IBOutlet UILabel *maxRotX;
 @property (strong, nonatomic) IBOutlet UILabel *maxRotY;
 @property (strong, nonatomic) IBOutlet UILabel *maxRotZ;
+
 //- (IBAction)resetMaxValues:(id)sender;
 @property (strong, nonatomic) CMMotionManager *motionManager;
 -(void)swipeHandler:(UISwipeGestureRecognizer *)recognizer;
+
+@property (nonatomic, retain) id <ViewControllerDelegate> viewControllerDelegate;
+
 @end

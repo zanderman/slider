@@ -60,7 +60,7 @@
                     </view>
                     <toolbarItems/>
                     <connections>
-                        <outlet property="pointsLabel" destination="DYn-uX-MaL" id="I0t-Eb-xkK"/>
+                        <outlet property="pointsLabel" destination="DYn-uX-MaL" id="uub-2j-qzf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OSA-aN-fYN" userLabel="First Responder" sceneMemberID="firstResponder"/>

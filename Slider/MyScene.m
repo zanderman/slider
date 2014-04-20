@@ -27,7 +27,9 @@ ViewController *parentView;
 
 static const uint32_t penguinCategory     =  0x1 << 0;
 
-int globalPoints;
+int life = 3;
+int points = 0;
+
 static const float BG_VELOCITY = 100.0;
 
 static inline CGPoint CGPointAdd(const CGPoint a, const CGPoint b)
@@ -48,7 +50,6 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 }
 -(id)initWithSize:(CGSize)size {
     self.physicsWorld.contactDelegate = self;
-    globalPoints = 0;
     
     if (self = [super initWithSize:size]) {
         /* Setup your scene here */
@@ -75,7 +76,6 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         
         [self buildLevel1];
         [self createCharacter];
-        
 
     }
     return self;
@@ -87,7 +87,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     SKSpriteNode* iceBlock = [[SKSpriteNode alloc] initWithImageNamed: @"raindrop.png"];
     [iceBlock setSize:blockSize];
     [self addChild:iceBlock];
-    iceBlock.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:iceBlock.frame.size];
+    iceBlock.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:iceBlock.frame.size.width-10];
     
     iceBlock.physicsBody.restitution = 1.1f;
     iceBlock.physicsBody.friction = 1.0f;
@@ -97,12 +97,11 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 }
 -(void)buildLevel1
 {
-    CGSize blockSize = CGSizeMake(20, 20);
     
     //[self buildIceBlock].position = CGPointMake(CGRectGetMidX(self.frame)-20,10);
     //[self buildIceBlock].position = CGPointMake(CGRectGetMidX(self.frame)+20,10);
     
-    for (int i=0; i<20; i++) {
+    for (int i=0; i<10; i++) {
         SKSpriteNode *node = [self buildIceBlock];
         int r = (arc4random() % (NSInteger)self.frame.size.width/20);
         r *= 20;
@@ -175,9 +174,13 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 
 - (void)didBeginContact:(SKPhysicsContact *)contact
 {
-    globalPoints++;
+    
     [self.player removeAllActions];
-    NSLog(@"Contact");
+    life--;
+    if ( life == 0 ) {
+        
+    }
+    NSLog(@"Contact, Life: %d",life);
 }
 
 // Touch event.
@@ -251,6 +254,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         if ( _player.position.y <= 0 ) {
             
         }
+        
         _dt = currentTime - _lastUpdateTime;
         NSMutableArray *discardedItems = [NSMutableArray array];
         NSMutableArray *insertedItems = [NSMutableArray array];
@@ -264,6 +268,8 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
                 if (obj.position.y <= 0) {
                     [discardedItems addObject:obj]; // Add to discarding array
                     obj.removeFromParent;
+                    
+                    points++; // 1 More point
                     
                     // Generate new iceblocks
                     for (int i=0; i<1; i++) {
