@@ -313,6 +313,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
                 }
             }
         }
+        
         if ( dropIndex >= dropDelay) {
             // Generate new iceblocks
 	        for (int i=0; i<1; i++) {
