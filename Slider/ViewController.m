@@ -14,6 +14,7 @@
 // Interface
 @interface ViewController ()
 -(void)showResultScreen:(NSString*)str1 : (NSString*)str2;
+@property (nonatomic, strong) SKScene *scene;
 @end
 
 // Implementation
@@ -35,8 +36,8 @@ UIViewController *uivc;
 //    skView.showsNodeCount = YES;
     
     // Create and configure the scene.
-    SKScene * scene = [MyScene sceneWithSize:skView.bounds.size];
-    scene.scaleMode = SKSceneScaleModeAspectFill;
+    _scene = [MyScene sceneWithSize:skView.bounds.size];
+    _scene.scaleMode = SKSceneScaleModeAspectFill;
     
     
     
@@ -50,14 +51,14 @@ UIViewController *uivc;
     
     
     // Present the scene.
-    [skView presentScene:scene];
+    [skView presentScene:_scene];
     skView.bounds.size.width;
     
     
     
     
     // Configure delegate
-    obj = scene;
+    obj = _scene;
     [obj setDelegate:self];
     CGPointMake(2,3);
     

@@ -12,9 +12,9 @@
 #include "MyScene.h"
 
 @interface CustomAlertViewController ()
-@property (nonatomic,strong) MyScene *scene;
+@property (nonatomic,strong) MyScene *myscene;
 @end
-
+//SKScene *test;
 @implementation CustomAlertViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -23,7 +23,7 @@
     if (self) {
        
         // Allocate space for the scene variable.
-        _scene = [[MyScene alloc] init];
+//        test = _myscene.scene;
         
         
         // Custom initialization
@@ -58,7 +58,7 @@
 
 - (IBAction)btnOkayTap:(id)sender {
     [self.view removeFromSuperview];
-    [_scene resetGame];
+    [_myscene resetGame];
 }
 
 -(void)showCustomAlertInView:(UIView *)targetView withMessage:(NSString *)message1 : (NSString *)message2 {
