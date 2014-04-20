@@ -12,6 +12,8 @@
 @implementation ViewController
 MyScene *obj; // Declare MyScene object.
 
+@synthesize viewControllerDelegate;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -55,6 +57,8 @@ MyScene *obj; // Declare MyScene object.
     [self.view addGestureRecognizer:up_gesture];
     [self.view addGestureRecognizer:down_gesture];
     
+    ViewController *vc = [[ViewController alloc]init];
+    vc.viewControllerDelegate = self;
 //    // Motion
 //    currentMaxAccelX = 0;
 //    currentMaxAccelY = 0;
@@ -146,11 +150,6 @@ MyScene *obj; // Declare MyScene object.
 
 
 
-
-
-
-
-
 - (BOOL)shouldAutorotate
 {
     return YES;
@@ -174,6 +173,7 @@ MyScene *obj; // Declare MyScene object.
 // Handle all swipe events.
 -(void)swipeHandler:(UISwipeGestureRecognizer *)recognizer {
     [obj moveCharacter:recognizer]; // Call MyScene method.
+    [viewControllerDelegate updateLabel];
 }
 
 @end

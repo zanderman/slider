@@ -20,6 +20,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
     }
     return self;
 }
@@ -37,6 +38,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)updateLabel
+{
+    NSLog(@"Lol");
+    _pointsLabel.text = @"Test";
+}
 /*
 #pragma mark - Navigation
 
