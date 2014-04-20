@@ -51,6 +51,7 @@ double currentMaxRotZ;
 @property (strong, nonatomic) CMMotionManager *motionManager;
 -(void)swipeHandler:(UISwipeGestureRecognizer *)recognizer;
 -(void)showResultScreen: (NSString*)str1 : (NSString*)str2;
+-(void)removeResultScreen;
 
 -(void)test;
 

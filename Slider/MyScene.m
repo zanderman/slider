@@ -48,6 +48,7 @@ int dropIndex = 0;
 
 int waterDropsFallen = 0;
 int level = 1;
+bool isEnd = false;
 
 static const float BG_VELOCITY = 100.0;
 
@@ -313,6 +314,9 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
             honey1.hidden = YES;
             NSString *scoreString = [NSString stringWithFormat:@"Score: %d", points];
             [_viewController showResultScreen:scoreString:@"       LOSE!"];
+            activeGame = false;
+            isEnd = true;
+//            [self resetGame];
         }
         
         NSLog(@"Contact, Life: %d",life);
@@ -380,7 +384,10 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 // Touch event.
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 //    /* Called when a touch begins */
-//    
+    if(isEnd) {
+        [_viewController removeResultScreen];
+        [self resetGame];
+    }
     for (UITouch *touch in touches) {
         // Move penguin.
         CGPoint location = [touch locationInNode:self];
@@ -410,6 +417,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 
 -(void)resetGame
 {
+//    [_viewController removeResultScreen];
     // Iterate through blocks
     for (SKSpriteNode *obj in _blocks) {
         if ( [obj isKindOfClass:[SKSpriteNode class]]) {
@@ -424,7 +432,8 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     life = 3;
     dropIndex = 0;
     waterDropsFallen = 0;
-    activeGame = true;
+//    activeGame = true;
+    isEnd = false;
     
     // Reset Labels
     NSString *string = [NSString stringWithFormat:@"Points: %d",points];
@@ -433,6 +442,8 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     levelLabel.text = string2;
     
     [_blocks removeAllObjects];
+    self.player.position = CGPointMake(CGRectGetMidX(self.frame), 50);
+    activeGame = true;
 }
 
 // Handle swipe gesture.
@@ -472,6 +483,8 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
             NSString *scoreString = [NSString stringWithFormat:@"Score: %d", points];
             [_viewController showResultScreen:scoreString:@"       LOSE!"];
             activeGame = false;
+            isEnd = true;
+//            [self resetGame];
         }
         
         _dt = currentTime - _lastUpdateTime;

@@ -10,12 +10,13 @@
 #define OK_BUTTON_TAG   888
 #define ANIMATION_DURATION  0.25
 #include "MyScene.h"
+#include "ViewController.h"
 
 @interface CustomAlertViewController ()
-@property (nonatomic,strong) MyScene *scene;
+@property (nonatomic,strong) MyScene *myscene;
 @property (nonatomic,strong)ViewController *vc;
 @end
-
+//SKScene *test;
 @implementation CustomAlertViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -23,9 +24,11 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Allocate space for the scene variable.
-        _scene = [[MyScene alloc] init];
+        _myscene = [[MyScene alloc] init];
         _vc = [self.view superview];
         [_vc test];
+//        test = _myscene.scene;
+//        self.view.superview
         
         // Custom initialization
         [self.view setBackgroundColor:[UIColor  colorWithRed:0 green:0 blue:0 alpha:0]];
@@ -37,6 +40,7 @@
         [_btnOK setEnabled:YES];
 
         [_btnOK setTag:OK_BUTTON_TAG];
+        
         
     }
     return self;
@@ -60,7 +64,7 @@
 
 - (IBAction)btnOkayTap:(id)sender {
     [self.view removeFromSuperview];
-    [_scene resetGame];
+//    [_myscene resetGame];
 }
 
 -(void)showCustomAlertInView:(UIView *)targetView withMessage:(NSString *)message1 : (NSString *)message2 {

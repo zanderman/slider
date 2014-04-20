@@ -14,6 +14,8 @@
 // Interface
 @interface ViewController ()
 -(void)showResultScreen:(NSString*)str1 : (NSString*)str2;
+//@property (nonatomic, strong) CustomAlertViewController *customAlert; // Ending popup window.
+@property (nonatomic, strong) SKScene *scene;
 @end
 
 // Implementation
@@ -35,29 +37,29 @@ UIViewController *uivc;
 //    skView.showsNodeCount = YES;
     
     // Create and configure the scene.
-    SKScene * scene = [MyScene sceneWithSize:skView.bounds.size];
-    scene.scaleMode = SKSceneScaleModeAspectFill;
+    _scene = [MyScene sceneWithSize:skView.bounds.size];
+    _scene.scaleMode = SKSceneScaleModeAspectFill;
     
     
     
     
     // INitialize the custom view.
 //    _customAlert = [[CustomAlertViewController alloc] init];
-//    [_customAlert setDelegate:self];
+//    [_customAlert setDelegate:uivc];
 //    [_customAlert showCustomAlertInView:self.view withMessage:@"Score: ???":@"WIN!"];
     
     
     
     
     // Present the scene.
-    [skView presentScene:scene];
+    [skView presentScene:_scene];
     skView.bounds.size.width;
     
     
     
     
     // Configure delegate
-    obj = scene;
+    obj = _scene;
     [obj setDelegate:self];
     CGPointMake(2,3);
     
@@ -227,10 +229,15 @@ UIViewController *uivc;
     [obj moveCharacter:recognizer]; // Call MyScene method.
 }
 -(void)showResultScreen:(NSString*)str1 : (NSString*)str2 {
-//    NSLog(@"made it");
+    NSLog(@"made it");
     _customAlert = [[CustomAlertViewController alloc] init];
     [_customAlert setDelegate:uivc];
     [_customAlert showCustomAlertInView:uivc.view withMessage:str1:str2];
+}
+-(void)removeResultScreen {
+//    _customAlert = [[CustomAlertViewController alloc] init];
+//    [_customAlert setDelegate:uivc];
+    [_customAlert.view removeFromSuperview];
 }
 
 @end
