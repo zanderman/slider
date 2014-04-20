@@ -10,6 +10,7 @@
 //#import "ViewController.h"
 #include <QuartzCore/QuartzCore.h>
 #include <stdlib.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface MyScene ()
 @property (nonatomic) SKSpriteNode * player;
@@ -133,7 +134,6 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         [honey3 setPosition:CGPointMake(CGRectGetMidX(self.frame)-25, self.frame.size.height-34)];
         [honey3 setSize:CGSizeMake(30, 30)];
         [self addChild:honey3];
-        
     }
     return self;
 }
@@ -366,6 +366,11 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 
 
 }
+-(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSLog(@"HERE");
+}
+
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
     for (UITouch *touch in touches) {
@@ -375,6 +380,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         [self.player runAction:action];
     }
 }
+
 // Touch event.
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 //    /* Called when a touch begins */
