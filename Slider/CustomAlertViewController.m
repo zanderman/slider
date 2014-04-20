@@ -23,6 +23,7 @@
     if (self) {
         // Allocate space for the scene variable.
 //        test = _myscene.scene;
+//        self.view.superview
         
         // Custom initialization
         [self.view setBackgroundColor:[UIColor  colorWithRed:0 green:0 blue:0 alpha:0]];
