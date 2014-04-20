@@ -144,17 +144,17 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 {
     
     // Character in the game.
-    self.player = [SKSpriteNode spriteNodeWithImageNamed:@"player"];
+    self.player = [SKSpriteNode spriteNodeWithImageNamed:@"bee.png"];
     self.player.position = CGPointMake(CGRectGetMidX(self.frame), 50);
 
     self.player.physicsBody.restitution = 0.1f;
     self.player.physicsBody.friction = 0.4f;
     [self.player setSize:CGSizeMake(19, 19)];
-    self.player.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.player.frame.size];
+    //self.player.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.player.frame.size];
     [self addChild:self.player];
     
     // Physics for penguin.
-    //self.player.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.player.frame.size.width/2];
+    self.player.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.player.frame.size.width/2];
 //    self.player.physicsBody.restitution = 0.1f;
 //    self.player.physicsBody.friction = 0.4f;
     self.player.physicsBody.dynamic = YES;

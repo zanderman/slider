@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09983A1919034F1C0023CFCD /* Bee.png in Resources */ = {isa = PBXBuildFile; fileRef = 09983A1819034F1C0023CFCD /* Bee.png */; };
 		09A21B0B19021B330098CFE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A21B0A19021B330098CFE3 /* Foundation.framework */; };
 		09A21B0D19021B330098CFE3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A21B0C19021B330098CFE3 /* CoreGraphics.framework */; };
 		09A21B0F19021B330098CFE3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A21B0E19021B330098CFE3 /* UIKit.framework */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09983A1819034F1C0023CFCD /* Bee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bee.png; sourceTree = "<group>"; };
 		09A21B0719021B330098CFE3 /* Slider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09A21B0A19021B330098CFE3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		09A21B0C19021B330098CFE3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -137,6 +139,7 @@
 		09A21B1219021B330098CFE3 /* Slider */ = {
 			isa = PBXGroup;
 			children = (
+				09983A1819034F1C0023CFCD /* Bee.png */,
 				09A6EFEE1903407A008644DE /* bg.png */,
 				09A6EFEC19030DE8008644DE /* Ice-icon.png */,
 				09A21B5419024D930098CFE3 /* TitleViewController.h */,
@@ -269,6 +272,7 @@
 				09A21B2D19021B330098CFE3 /* Images.xcassets in Resources */,
 				09A6EFEF1903407A008644DE /* bg.png in Resources */,
 				09A21B4E190229600098CFE3 /* player.png in Resources */,
+				09983A1919034F1C0023CFCD /* Bee.png in Resources */,
 				09A21B2319021B330098CFE3 /* Main_iPad.storyboard in Resources */,
 				09A21B50190231860098CFE3 /* iceBlock.PNG in Resources */,
 				09A21B2019021B330098CFE3 /* Main_iPhone.storyboard in Resources */,
