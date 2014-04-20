@@ -46,6 +46,7 @@ double currentMaxRotZ;
 @property (strong, nonatomic) IBOutlet UILabel *maxRotZ;
 
 //- (IBAction)resetMaxValues:(id)sender;
+@property (nonatomic, strong) CustomAlertViewController *customAlert; // Ending popup window.
 @property (strong, nonatomic) CMMotionManager *motionManager;
 -(void)swipeHandler:(UISwipeGestureRecognizer *)recognizer;
 

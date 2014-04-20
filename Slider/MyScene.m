@@ -8,10 +8,12 @@
 
 #import "MyScene.h"
 #import "TitleViewController.h"
+#include <QuartzCore/QuartzCore.h>
 #include <stdlib.h>
 
 @interface MyScene ()
 @property (nonatomic) SKSpriteNode * player;
+@property (nonatomic, retain) UIViewController *contentViewController;
 @property NSInteger blocksX;
 @property NSInteger blocksY;
 @property NSMutableArray *blocks;
@@ -47,6 +49,12 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     return CGPointMake(a.x * b, a.y * b);
 }
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0)
+    {
+        NSLog(@"alskjdhflksajdhgflksdh");
+    }
+}
 -(id)initWithSize:(CGSize)size {
     self.physicsWorld.contactDelegate = self;
     
@@ -250,9 +258,25 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         CGPoint location = [touch locationInNode:self];
         SKAction *action = [SKAction moveTo:location duration:0.5f];
         
-        [self.player runAction:action]; // run the action created above.
-//        NSLog(self.maxAccX.text);
-    }
+        // Alert popup.
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Title" message:@"Message" delegate:self cancelButtonTitle:@"Continue" otherButtonTitles: nil];
+        [alert show];
+    
+    // Load an image.
+//    UIImageView *aView = [[UIImageView alloc] init];
+//    aView.frame = self.view.frame;
+//    aView.opaque = YES;
+//    [aView setFrame:CGRectMake(200, 200, 250, 250)];
+//    aView.layer.shadowRadius = 10;
+//        aView.alpha = 0.33;
+//        [aView setFrame:CGRectMake(100, 100, 150, 150)];
+//        [aView setBackgroundColor:[UIImage imageNamed:@"Spaceship.png"]];
+//        aView.layer.cornerRadius = 0.5;
+//        aView.layer.borderColor = [UIColor redColor].CGColor;
+//        aView.layer.borderWidth = 0.5f;
+//        [self.view addSubview:aView];
+    
+//    }
 }
 
 
