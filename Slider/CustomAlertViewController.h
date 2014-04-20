@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+//#import "ViewController.h"
 
 @protocol CustomAlertViewControllerDelegate
 //-(void)customAlertOK;
@@ -28,8 +29,13 @@
 @property (strong, nonatomic) IBOutlet UIButton *btnOK;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 
+
+
+
 // Actions
 -(void)showCustomAlertInView:(UIView *)targetView withMessage:(NSString *)message1 : (NSString *)message2;
+- (IBAction)btnOkayTap:(id)sender;
+
 //- (IBAction)btnOkayTap:(id)sender;
 
 @end

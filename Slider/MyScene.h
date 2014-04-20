@@ -8,13 +8,14 @@
 @protocol ViewControllerDelegate
 -(void)updateLabel;
 @end
+
 #import <SpriteKit/SpriteKit.h>
 #import "ViewController.h"
+#import "CustomAlertViewController.h"
 
 @protocol MySceneDelagate
 //-(void)moveCharacter:(UISwipeGestureRecognizer *)recognizer;
 @end
-
 
 
 @interface MyScene : SKScene
@@ -23,6 +24,8 @@
 -(SKSpriteNode*)buildIceBlock;
 -(void)createCharacter;
 -(void)moveCharacter:(UISwipeGestureRecognizer *)recognizer;
+//@property (nonatomic,strong) ViewController *viewController;
+//@property (nonatomic, strong) CustomAlertViewController *customAlert; // Ending popup window.
 -(void)initalizingScrollingBackground;
 @property (nonatomic, weak) id <ViewControllerDelegate> viewControllerDelegate;
 -(SKSpriteNode*)buildHoneyComb;

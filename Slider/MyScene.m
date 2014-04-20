@@ -8,12 +8,14 @@
 
 #import "MyScene.h"
 #import "TitleViewController.h"
+//#import "ViewController.h"
 #include <QuartzCore/QuartzCore.h>
 #include <stdlib.h>
 
 @interface MyScene ()
 @property (nonatomic) SKSpriteNode * player;
 @property (nonatomic, retain) UIViewController *contentViewController;
+@property (nonatomic,strong) ViewController *viewController;
 @property NSInteger blocksX;
 @property NSInteger blocksY;
 @property NSMutableArray *blocks;
@@ -36,6 +38,7 @@ int points = 0;
 // Variables for drop timing
 int dropDelay = 40;
 int dropIndex = 0;
+
 
 static const float BG_VELOCITY = 100.0;
 
@@ -60,6 +63,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     
     if (self = [super initWithSize:size]) {
         /* Setup your scene here */
+        _viewController = [[ViewController alloc] init];
         
         self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
         [self initalizingScrollingBackground];
@@ -245,6 +249,8 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     }
     else if ( life == 0) {
         honey1.hidden = YES;
+        NSString *scoreString = [NSString stringWithFormat:@"Score: %d", points];
+        [_viewController showResultScreen:scoreString:@"       LOSE!"];
     }
     NSLog(@"Contact, Life: %d",life);
 }
@@ -314,7 +320,8 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     if (_lastUpdateTime)
     {
         if ( _player.position.y <= 0 ) {
-            
+            NSString *scoreString = [NSString stringWithFormat:@"Score: %d", points];
+            [_viewController showResultScreen:scoreString:@"       LOSE!"];
         }
         
         _dt = currentTime - _lastUpdateTime;

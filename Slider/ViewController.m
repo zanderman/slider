@@ -11,9 +11,16 @@
 //#import "CustomAlertViewController.m"
 #import "TitleViewController.h"
 
+// Interface
+@interface ViewController ()
+-(void)showResultScreen:(NSString*)str1 : (NSString*)str2;
+@end
+
+// Implementation
 @implementation ViewController
 MyScene *obj; // Declare MyScene object.
 TitleViewController *tv;
+UIViewController *uivc;
 @synthesize titleViewDelegate;
 
 - (void)viewDidLoad
@@ -22,6 +29,7 @@ TitleViewController *tv;
 
     // Configure the view.
     SKView * skView = (SKView *)self.view;
+    uivc = self;
 
 //    skView.showsFPS = YES;
 //    skView.showsNodeCount = YES;
@@ -34,9 +42,9 @@ TitleViewController *tv;
     
     
     // INitialize the custom view.
-    _customAlert = [[CustomAlertViewController alloc] init];
-    [_customAlert setDelegate:self];
-    [_customAlert showCustomAlertInView:self.view withMessage:@"Score: ???":@"WIN!"];
+//    _customAlert = [[CustomAlertViewController alloc] init];
+//    [_customAlert setDelegate:self];
+//    [_customAlert showCustomAlertInView:self.view withMessage:@"Score: ???":@"WIN!"];
     
     
     
@@ -215,6 +223,12 @@ TitleViewController *tv;
 -(void)swipeHandler:(UISwipeGestureRecognizer *)recognizer {
 //    [skView presentScene:scene];
     [obj moveCharacter:recognizer]; // Call MyScene method.
+}
+-(void)showResultScreen:(NSString*)str1 : (NSString*)str2 {
+//    NSLog(@"made it");
+    _customAlert = [[CustomAlertViewController alloc] init];
+    [_customAlert setDelegate:uivc];
+    [_customAlert showCustomAlertInView:uivc.view withMessage:str1:str2];
 }
 
 @end

@@ -9,9 +9,10 @@
 #import "CustomAlertViewController.h"
 #define OK_BUTTON_TAG   888
 #define ANIMATION_DURATION  0.25
+#include "MyScene.h"
 
 @interface CustomAlertViewController ()
-
+@property (nonatomic,strong) MyScene *scene;
 @end
 
 @implementation CustomAlertViewController
@@ -20,6 +21,11 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+       
+        // Allocate space for the scene variable.
+        _scene = [[MyScene alloc] init];
+        
+        
         // Custom initialization
         [self.view setBackgroundColor:[UIColor  colorWithRed:0 green:0 blue:0 alpha:0]];
         [_viewMessage.layer setCornerRadius:10.0f];
@@ -27,14 +33,8 @@
         
         // Set Button Info.
         [_btnOK setTitle:@"Play Again!" forState:UIControlStateNormal];
-//        [_btnOK setTitleColor:[UIColor yellowColor] forState:UIControlStateNormal];
         [_btnOK setEnabled:YES];
-        
-//        [_lblMessage setFrame:CGRectMake(_lblMessage.frame.origin.x,
-//                                         _lblMessage.frame.origin.y,
-//                                         _lblMessage.frame.size.width,
-//                                         _viewMessage.frame.size.height - _toolbar.frame.size.height)];
-//        [_lblMessage setFrame:CGRectMake(0,0,0,0)];
+
         [_btnOK setTag:OK_BUTTON_TAG];
         
     }
@@ -56,6 +56,10 @@
 //- (IBAction)btnOkayTap:(id)sender {
 //}
 
+- (IBAction)btnOkayTap:(id)sender {
+    [self.view removeFromSuperview];
+    [_scene resetGame];
+}
 
 -(void)showCustomAlertInView:(UIView *)targetView withMessage:(NSString *)message1 : (NSString *)message2 {
     CGFloat statusBarOffset;
@@ -138,4 +142,5 @@
     [_scoreMessage setText:message1];
     [_winloseMessage setText:message2];
 }
+
 @end
