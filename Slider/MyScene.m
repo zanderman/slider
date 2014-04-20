@@ -426,7 +426,6 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     life = 3;
     dropIndex = 0;
     waterDropsFallen = 0;
-//    activeGame = true;
     isEnd = false;
     
     // Reset Labels
@@ -437,6 +436,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     
     [_blocks removeAllObjects];
     self.player.position = CGPointMake(CGRectGetMidX(self.frame), 50);
+    [_viewController removeResultScreen];
     activeGame = true;
 }
 
