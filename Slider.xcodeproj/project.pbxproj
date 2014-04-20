@@ -10,12 +10,12 @@
 		048EB51B1903505500FFD1BE /* raindrop.png in Resources */ = {isa = PBXBuildFile; fileRef = 048EB51A1903505500FFD1BE /* raindrop.png */; };
 		048EB52219036FC200FFD1BE /* CustomAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048EB52019036FC200FFD1BE /* CustomAlertViewController.m */; };
 		048EB52319036FC200FFD1BE /* CustomAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048EB52119036FC200FFD1BE /* CustomAlertViewController.xib */; };
-		09983A1919034F1C0023CFCD /* Bee.png in Resources */ = {isa = PBXBuildFile; fileRef = 09983A1819034F1C0023CFCD /* Bee.png */; };
 		09154665190383F000B0095E /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 09154664190383F000B0095E /* bg.jpg */; };
 		091546671903916C00B0095E /* honeycomb-hi.png in Resources */ = {isa = PBXBuildFile; fileRef = 091546661903916C00B0095E /* honeycomb-hi.png */; };
 		0915466B1903936C00B0095E /* flower.png in Resources */ = {isa = PBXBuildFile; fileRef = 0915466A1903936C00B0095E /* flower.png */; };
 		0915466D1903946A00B0095E /* honey2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0915466C1903946A00B0095E /* honey2.png */; };
 		0915466F1903976500B0095E /* honey.png in Resources */ = {isa = PBXBuildFile; fileRef = 0915466E1903976500B0095E /* honey.png */; };
+		091546721903C40D00B0095E /* StartScreenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 091546711903C40D00B0095E /* StartScreenController.m */; };
 		09A21B0B19021B330098CFE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A21B0A19021B330098CFE3 /* Foundation.framework */; };
 		09A21B0D19021B330098CFE3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A21B0C19021B330098CFE3 /* CoreGraphics.framework */; };
 		09A21B0F19021B330098CFE3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A21B0E19021B330098CFE3 /* UIKit.framework */; };
@@ -37,7 +37,6 @@
 		09A21B4E190229600098CFE3 /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = 09A21B4D190229600098CFE3 /* player.png */; };
 		09A21B50190231860098CFE3 /* iceBlock.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 09A21B4F190231860098CFE3 /* iceBlock.PNG */; };
 		09A21B531902374C0098CFE3 /* Borders.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A21B521902374C0098CFE3 /* Borders.m */; };
-		09A21B5619024D930098CFE3 /* TitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A21B5519024D930098CFE3 /* TitleViewController.m */; };
 		09A6EFED19030DE8008644DE /* Ice-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 09A6EFEC19030DE8008644DE /* Ice-icon.png */; };
 /* End PBXBuildFile section */
 
@@ -56,12 +55,14 @@
 		048EB51F19036FC200FFD1BE /* CustomAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlertViewController.h; sourceTree = "<group>"; };
 		048EB52019036FC200FFD1BE /* CustomAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlertViewController.m; sourceTree = "<group>"; };
 		048EB52119036FC200FFD1BE /* CustomAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomAlertViewController.xib; sourceTree = "<group>"; };
-		09983A1819034F1C0023CFCD /* Bee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bee.png; sourceTree = "<group>"; };
 		09154664190383F000B0095E /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
 		091546661903916C00B0095E /* honeycomb-hi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "honeycomb-hi.png"; sourceTree = "<group>"; };
 		0915466A1903936C00B0095E /* flower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flower.png; sourceTree = "<group>"; };
 		0915466C1903946A00B0095E /* honey2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = honey2.png; sourceTree = "<group>"; };
 		0915466E1903976500B0095E /* honey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = honey.png; sourceTree = "<group>"; };
+		091546701903C40D00B0095E /* StartScreenController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartScreenController.h; path = Slider/StartScreenController.h; sourceTree = "<group>"; };
+		091546711903C40D00B0095E /* StartScreenController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartScreenController.m; path = Slider/StartScreenController.m; sourceTree = "<group>"; };
+		09983A1819034F1C0023CFCD /* Bee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bee.png; sourceTree = "<group>"; };
 		09A21B0719021B330098CFE3 /* Slider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09A21B0A19021B330098CFE3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		09A21B0C19021B330098CFE3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -90,8 +91,6 @@
 		09A21B4F190231860098CFE3 /* iceBlock.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iceBlock.PNG; sourceTree = "<group>"; };
 		09A21B511902374C0098CFE3 /* Borders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Borders.h; sourceTree = "<group>"; };
 		09A21B521902374C0098CFE3 /* Borders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Borders.m; sourceTree = "<group>"; };
-		09A21B5419024D930098CFE3 /* TitleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleViewController.h; sourceTree = "<group>"; };
-		09A21B5519024D930098CFE3 /* TitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleViewController.m; sourceTree = "<group>"; };
 		09A6EFEC19030DE8008644DE /* Ice-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ice-icon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,6 +132,8 @@
 		09A21AFE19021B330098CFE3 = {
 			isa = PBXGroup;
 			children = (
+				091546701903C40D00B0095E /* StartScreenController.h */,
+				091546711903C40D00B0095E /* StartScreenController.m */,
 				09A21B1219021B330098CFE3 /* Slider */,
 				09A21B3919021B330098CFE3 /* SliderTests */,
 				09A21B0919021B330098CFE3 /* Frameworks */,
@@ -166,15 +167,12 @@
 			children = (
 				048EB51E19036F6300FFD1BE /* Custom Alert View */,
 				09983A1819034F1C0023CFCD /* Bee.png */,
-				09A6EFEE1903407A008644DE /* bg.png */,
 				0915466E1903976500B0095E /* honey.png */,
 				0915466C1903946A00B0095E /* honey2.png */,
 				0915466A1903936C00B0095E /* flower.png */,
 				091546661903916C00B0095E /* honeycomb-hi.png */,
 				09154664190383F000B0095E /* bg.jpg */,
 				09A6EFEC19030DE8008644DE /* Ice-icon.png */,
-				09A21B5419024D930098CFE3 /* TitleViewController.h */,
-				09A21B5519024D930098CFE3 /* TitleViewController.m */,
 				048EB51A1903505500FFD1BE /* raindrop.png */,
 				09A21B511902374C0098CFE3 /* Borders.h */,
 				09A21B521902374C0098CFE3 /* Borders.m */,
@@ -305,7 +303,6 @@
 				09A21B2B19021B330098CFE3 /* Spaceship.png in Resources */,
 				091546671903916C00B0095E /* honeycomb-hi.png in Resources */,
 				09A21B2D19021B330098CFE3 /* Images.xcassets in Resources */,
-				09A6EFEF1903407A008644DE /* bg.png in Resources */,
 				048EB52319036FC200FFD1BE /* CustomAlertViewController.xib in Resources */,
 				09A21B4E190229600098CFE3 /* player.png in Resources */,
 				09A21B2319021B330098CFE3 /* Main_iPad.storyboard in Resources */,
@@ -336,7 +333,7 @@
 			files = (
 				048EB52219036FC200FFD1BE /* CustomAlertViewController.m in Sources */,
 				09A21B531902374C0098CFE3 /* Borders.m in Sources */,
-				09A21B5619024D930098CFE3 /* TitleViewController.m in Sources */,
+				091546721903C40D00B0095E /* StartScreenController.m in Sources */,
 				09A21B2919021B330098CFE3 /* MyScene.m in Sources */,
 				09A21B2619021B330098CFE3 /* ViewController.m in Sources */,
 				09A21B1D19021B330098CFE3 /* AppDelegate.m in Sources */,

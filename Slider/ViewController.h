@@ -15,7 +15,6 @@
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
 #import <CoreMotion/CoreMotion.h>
-#import "TitleViewController.h"
 #import "MyScene.h"
 #import "CustomAlertViewController.h"
 
