@@ -13,6 +13,7 @@
 
 @interface CustomAlertViewController ()
 @property (nonatomic,strong) MyScene *scene;
+@property (nonatomic,strong)ViewController *vc;
 @end
 
 @implementation CustomAlertViewController
@@ -23,6 +24,8 @@
     if (self) {
         // Allocate space for the scene variable.
         _scene = [[MyScene alloc] init];
+        _vc = [self.view superview];
+        [_vc test];
         
         // Custom initialization
         [self.view setBackgroundColor:[UIColor  colorWithRed:0 green:0 blue:0 alpha:0]];
@@ -43,6 +46,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
 }
 
 - (void)didReceiveMemoryWarning

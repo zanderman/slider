@@ -52,6 +52,8 @@ double currentMaxRotZ;
 -(void)swipeHandler:(UISwipeGestureRecognizer *)recognizer;
 -(void)showResultScreen: (NSString*)str1 : (NSString*)str2;
 
+-(void)test;
+
 @property (nonatomic, weak) id <TitleViewDelegate> titleViewDelegate;
 @property id<ViewControllerDelegate> delegate;
 @end

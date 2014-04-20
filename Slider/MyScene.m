@@ -86,7 +86,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         float gameHeight = height - 60;
         
         // Set up physics for the scene
-        self.physicsWorld.gravity = CGVectorMake(0,-0.1f);
+        self.physicsWorld.gravity = CGVectorMake(0,-0.3f);
         self.physicsWorld.contactDelegate = self;
         
         self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:CGRectMake(0, 0, width, gameHeight)];
@@ -362,7 +362,15 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 
 
 }
-
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    for (UITouch *touch in touches) {
+        // Move penguin.
+        CGPoint location = [touch locationInNode:self];
+        SKAction *action = [SKAction moveTo:location duration:0.3f];
+        [self.player runAction:action];
+    }
+}
 // Touch event.
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 //    /* Called when a touch begins */

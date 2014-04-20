@@ -130,6 +130,11 @@ UIViewController *uivc;
     
 }
 
+-(void)test
+{
+    NSLog(@"LOdj");
+}
+
 -(void)updateLabel
 {
     NSLog(@"LOL2");
