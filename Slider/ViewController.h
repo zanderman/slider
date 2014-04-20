@@ -11,7 +11,7 @@
 -(void) updateLabel;
 @end
 
-#import "MyScene.h"
+//#import "MyScene.h"
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
 #import <CoreMotion/CoreMotion.h>
@@ -51,6 +51,7 @@ double currentMaxRotZ;
 @property (nonatomic, strong) CustomAlertViewController *customAlert; // Ending popup window.
 @property (strong, nonatomic) CMMotionManager *motionManager;
 -(void)swipeHandler:(UISwipeGestureRecognizer *)recognizer;
+-(void)showResultScreen: (NSString*)str1 : (NSString*)str2;
 
 @property (nonatomic, weak) id <TitleViewDelegate> titleViewDelegate;
 @property id<ViewControllerDelegate> delegate;

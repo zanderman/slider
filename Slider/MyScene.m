@@ -8,12 +8,14 @@
 
 #import "MyScene.h"
 #import "TitleViewController.h"
+//#import "ViewController.h"
 #include <QuartzCore/QuartzCore.h>
 #include <stdlib.h>
 
 @interface MyScene ()
 @property (nonatomic) SKSpriteNode * player;
 @property (nonatomic, retain) UIViewController *contentViewController;
+@property (nonatomic,strong) ViewController *viewController;
 @property NSInteger blocksX;
 @property NSInteger blocksY;
 @property NSMutableArray *blocks;
@@ -70,6 +72,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     
     if (self = [super initWithSize:size]) {
         /* Setup your scene here */
+        _viewController = [[ViewController alloc] init];
         
         self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
         [self initalizingScrollingBackground];
