@@ -55,6 +55,16 @@ MyScene *obj; // Declare MyScene object.
     [self.view addGestureRecognizer:up_gesture];
     [self.view addGestureRecognizer:down_gesture];
     
+    
+//    // View Controller Popup code.
+//    ViewController *viewController = [[ViewController alloc] init];
+//    [self  addChildViewController:viewController];
+//    viewController.view.frame = scene.frame;
+//    [scene.view addSubview:viewController.view];
+//    viewController.view.alpha = 0;
+//    [viewController didMoveToParentViewController:scene];
+    
+    
 //    // Motion
 //    currentMaxAccelX = 0;
 //    currentMaxAccelY = 0;
