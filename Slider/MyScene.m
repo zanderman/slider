@@ -255,7 +255,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     
     // Character in the game.
     self.player = [SKSpriteNode spriteNodeWithImageNamed:@"bee.png"];
-    self.player.position = CGPointMake(CGRectGetMidX(self.frame), 50);
+    self.player.position = CGPointMake(CGRectGetMidX(self.frame), 150);
 
     self.player.physicsBody.restitution = 0.1f;
     self.player.physicsBody.friction = 0.4f;
@@ -382,11 +382,13 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         [_viewController removeResultScreen];
         [self resetGame];
     }
+    else {
     for (UITouch *touch in touches) {
         // Move penguin.
         CGPoint location = [touch locationInNode:self];
         SKAction *action = [SKAction moveTo:location duration:0.5f];
         [self.player runAction:action];
+    }
         
         // Alert popup.
 //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Title" message:@"Message" delegate:self cancelButtonTitle:@"Continue" otherButtonTitles: nil];
@@ -435,7 +437,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     levelLabel.text = string2;
     
     [_blocks removeAllObjects];
-    self.player.position = CGPointMake(CGRectGetMidX(self.frame), 50);
+    self.player.position = CGPointMake(CGRectGetMidX(self.frame), 150);
     [_viewController removeResultScreen];
     activeGame = true;
 }
