@@ -17,6 +17,7 @@
 		0915466F1903976500B0095E /* honey.png in Resources */ = {isa = PBXBuildFile; fileRef = 0915466E1903976500B0095E /* honey.png */; };
 		091546721903C40D00B0095E /* StartScreenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 091546711903C40D00B0095E /* StartScreenController.m */; };
 		091546741903D0F500B0095E /* splashMain.png in Resources */ = {isa = PBXBuildFile; fileRef = 091546731903D0F500B0095E /* splashMain.png */; };
+		0915467B1903F54100B0095E /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0915467A1903F54100B0095E /* logo.png */; };
 		09A21B0B19021B330098CFE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A21B0A19021B330098CFE3 /* Foundation.framework */; };
 		09A21B0D19021B330098CFE3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A21B0C19021B330098CFE3 /* CoreGraphics.framework */; };
 		09A21B0F19021B330098CFE3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A21B0E19021B330098CFE3 /* UIKit.framework */; };
@@ -62,8 +63,9 @@
 		091546711903C40D00B0095E /* StartScreenController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartScreenController.m; path = Slider/StartScreenController.m; sourceTree = "<group>"; };
 		091546731903D0F500B0095E /* splashMain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splashMain.png; path = ../splashMain.png; sourceTree = "<group>"; };
 		091546791903DF1200B0095E /* bumblebee.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bumblebee.caf; sourceTree = "<group>"; };
+		0915467A1903F54100B0095E /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		09983A1819034F1C0023CFCD /* Bee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bee.png; sourceTree = "<group>"; };
-		09A21B0719021B330098CFE3 /* Slider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slider.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		09A21B0719021B330098CFE3 /* Hapbee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hapbee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09A21B0A19021B330098CFE3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		09A21B0C19021B330098CFE3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		09A21B0E19021B330098CFE3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -129,6 +131,7 @@
 		09A21AFE19021B330098CFE3 = {
 			isa = PBXGroup;
 			children = (
+				0915467A1903F54100B0095E /* logo.png */,
 				091546701903C40D00B0095E /* StartScreenController.h */,
 				091546711903C40D00B0095E /* StartScreenController.m */,
 				09A21B1219021B330098CFE3 /* Slider */,
@@ -141,7 +144,7 @@
 		09A21B0819021B330098CFE3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				09A21B0719021B330098CFE3 /* Slider.app */,
+				09A21B0719021B330098CFE3 /* Hapbee.app */,
 				09A21B3219021B330098CFE3 /* SliderTests.xctest */,
 			);
 			name = Products;
@@ -235,7 +238,7 @@
 			);
 			name = Slider;
 			productName = Slider;
-			productReference = 09A21B0719021B330098CFE3 /* Slider.app */;
+			productReference = 09A21B0719021B330098CFE3 /* Hapbee.app */;
 			productType = "com.apple.product-type.application";
 		};
 		09A21B3119021B330098CFE3 /* SliderTests */ = {
@@ -298,6 +301,7 @@
 				048EB51B1903505500FFD1BE /* raindrop.png in Resources */,
 				091546671903916C00B0095E /* honeycomb-hi.png in Resources */,
 				09A21B2D19021B330098CFE3 /* Images.xcassets in Resources */,
+				0915467B1903F54100B0095E /* logo.png in Resources */,
 				048EB52319036FC200FFD1BE /* CustomAlertViewController.xib in Resources */,
 				09A21B2319021B330098CFE3 /* Main_iPad.storyboard in Resources */,
 				09A21B2019021B330098CFE3 /* Main_iPhone.storyboard in Resources */,
@@ -469,7 +473,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Slider/Slider-Prefix.pch";
 				INFOPLIST_FILE = "Slider/Slider-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Hapbee;
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -483,7 +487,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Slider/Slider-Prefix.pch";
 				INFOPLIST_FILE = "Slider/Slider-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Hapbee;
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};

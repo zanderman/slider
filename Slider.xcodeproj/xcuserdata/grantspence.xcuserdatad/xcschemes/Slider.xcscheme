@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "09A21B0619021B330098CFE3"
-               BuildableName = "Slider.app"
+               BuildableName = "Hapbee.app"
                BlueprintName = "Slider"
                ReferencedContainer = "container:Slider.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "09A21B0619021B330098CFE3"
-            BuildableName = "Slider.app"
+            BuildableName = "Hapbee.app"
             BlueprintName = "Slider"
             ReferencedContainer = "container:Slider.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "09A21B0619021B330098CFE3"
-            BuildableName = "Slider.app"
+            BuildableName = "Hapbee.app"
             BlueprintName = "Slider"
             ReferencedContainer = "container:Slider.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "09A21B0619021B330098CFE3"
-            BuildableName = "Slider.app"
+            BuildableName = "Hapbee.app"
             BlueprintName = "Slider"
             ReferencedContainer = "container:Slider.xcodeproj">
          </BuildableReference>
