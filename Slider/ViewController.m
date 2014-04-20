@@ -13,6 +13,7 @@
 // Interface
 @interface ViewController ()
 -(void)showResultScreen:(NSString*)str1 : (NSString*)str2;
+//@property (nonatomic, strong) CustomAlertViewController *customAlert; // Ending popup window.
 @property (nonatomic, strong) SKScene *scene;
 @end
 
@@ -43,7 +44,7 @@ UIViewController *uivc;
     
     // INitialize the custom view.
 //    _customAlert = [[CustomAlertViewController alloc] init];
-//    [_customAlert setDelegate:self];
+//    [_customAlert setDelegate:uivc];
 //    [_customAlert showCustomAlertInView:self.view withMessage:@"Score: ???":@"WIN!"];
     
     
@@ -230,10 +231,15 @@ UIViewController *uivc;
     [obj moveCharacter:recognizer]; // Call MyScene method.
 }
 -(void)showResultScreen:(NSString*)str1 : (NSString*)str2 {
-//    NSLog(@"made it");
+    NSLog(@"made it");
     _customAlert = [[CustomAlertViewController alloc] init];
     [_customAlert setDelegate:uivc];
     [_customAlert showCustomAlertInView:uivc.view withMessage:str1:str2];
+}
+-(void)removeResultScreen {
+//    _customAlert = [[CustomAlertViewController alloc] init];
+//    [_customAlert setDelegate:uivc];
+    [_customAlert.view removeFromSuperview];
 }
 
 @end
