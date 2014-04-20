@@ -28,15 +28,12 @@
 		09A21B2319021B330098CFE3 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09A21B2119021B330098CFE3 /* Main_iPad.storyboard */; };
 		09A21B2619021B330098CFE3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A21B2519021B330098CFE3 /* ViewController.m */; };
 		09A21B2919021B330098CFE3 /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A21B2819021B330098CFE3 /* MyScene.m */; };
-		09A21B2B19021B330098CFE3 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 09A21B2A19021B330098CFE3 /* Spaceship.png */; };
 		09A21B2D19021B330098CFE3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09A21B2C19021B330098CFE3 /* Images.xcassets */; };
 		09A21B3419021B330098CFE3 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A21B3319021B330098CFE3 /* XCTest.framework */; };
 		09A21B3519021B330098CFE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A21B0A19021B330098CFE3 /* Foundation.framework */; };
 		09A21B3619021B330098CFE3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A21B0E19021B330098CFE3 /* UIKit.framework */; };
 		09A21B3E19021B330098CFE3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09A21B3C19021B330098CFE3 /* InfoPlist.strings */; };
 		09A21B4019021B330098CFE3 /* SliderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A21B3F19021B330098CFE3 /* SliderTests.m */; };
-		09A21B4E190229600098CFE3 /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = 09A21B4D190229600098CFE3 /* player.png */; };
-		09A21B50190231860098CFE3 /* iceBlock.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 09A21B4F190231860098CFE3 /* iceBlock.PNG */; };
 		09A21B531902374C0098CFE3 /* Borders.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A21B521902374C0098CFE3 /* Borders.m */; };
 		09A6EFED19030DE8008644DE /* Ice-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 09A6EFEC19030DE8008644DE /* Ice-icon.png */; };
 /* End PBXBuildFile section */
@@ -64,6 +61,7 @@
 		091546701903C40D00B0095E /* StartScreenController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartScreenController.h; path = Slider/StartScreenController.h; sourceTree = "<group>"; };
 		091546711903C40D00B0095E /* StartScreenController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartScreenController.m; path = Slider/StartScreenController.m; sourceTree = "<group>"; };
 		091546731903D0F500B0095E /* splashMain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splashMain.png; path = ../splashMain.png; sourceTree = "<group>"; };
+		091546791903DF1200B0095E /* bumblebee.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bumblebee.caf; sourceTree = "<group>"; };
 		09983A1819034F1C0023CFCD /* Bee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bee.png; sourceTree = "<group>"; };
 		09A21B0719021B330098CFE3 /* Slider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09A21B0A19021B330098CFE3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -82,15 +80,12 @@
 		09A21B2519021B330098CFE3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		09A21B2719021B330098CFE3 /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
 		09A21B2819021B330098CFE3 /* MyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
-		09A21B2A19021B330098CFE3 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		09A21B2C19021B330098CFE3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		09A21B3219021B330098CFE3 /* SliderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SliderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		09A21B3319021B330098CFE3 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		09A21B3B19021B330098CFE3 /* SliderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SliderTests-Info.plist"; sourceTree = "<group>"; };
 		09A21B3D19021B330098CFE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		09A21B3F19021B330098CFE3 /* SliderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SliderTests.m; sourceTree = "<group>"; };
-		09A21B4D190229600098CFE3 /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
-		09A21B4F190231860098CFE3 /* iceBlock.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iceBlock.PNG; sourceTree = "<group>"; };
 		09A21B511902374C0098CFE3 /* Borders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Borders.h; sourceTree = "<group>"; };
 		09A21B521902374C0098CFE3 /* Borders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Borders.m; sourceTree = "<group>"; };
 		09A6EFEC19030DE8008644DE /* Ice-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ice-icon.png"; sourceTree = "<group>"; };
@@ -167,6 +162,7 @@
 		09A21B1219021B330098CFE3 /* Slider */ = {
 			isa = PBXGroup;
 			children = (
+				091546791903DF1200B0095E /* bumblebee.caf */,
 				091546731903D0F500B0095E /* splashMain.png */,
 				048EB51E19036F6300FFD1BE /* Custom Alert View */,
 				09983A1819034F1C0023CFCD /* Bee.png */,
@@ -179,8 +175,6 @@
 				048EB51A1903505500FFD1BE /* raindrop.png */,
 				09A21B511902374C0098CFE3 /* Borders.h */,
 				09A21B521902374C0098CFE3 /* Borders.m */,
-				09A21B4F190231860098CFE3 /* iceBlock.PNG */,
-				09A21B4D190229600098CFE3 /* player.png */,
 				09A21B1B19021B330098CFE3 /* AppDelegate.h */,
 				09A21B1C19021B330098CFE3 /* AppDelegate.m */,
 				09A21B1E19021B330098CFE3 /* Main_iPhone.storyboard */,
@@ -189,7 +183,6 @@
 				09A21B2519021B330098CFE3 /* ViewController.m */,
 				09A21B2719021B330098CFE3 /* MyScene.h */,
 				09A21B2819021B330098CFE3 /* MyScene.m */,
-				09A21B2A19021B330098CFE3 /* Spaceship.png */,
 				09A21B2C19021B330098CFE3 /* Images.xcassets */,
 				09A21B1319021B330098CFE3 /* Supporting Files */,
 			);
@@ -303,13 +296,10 @@
 			files = (
 				09154665190383F000B0095E /* bg.jpg in Resources */,
 				048EB51B1903505500FFD1BE /* raindrop.png in Resources */,
-				09A21B2B19021B330098CFE3 /* Spaceship.png in Resources */,
 				091546671903916C00B0095E /* honeycomb-hi.png in Resources */,
 				09A21B2D19021B330098CFE3 /* Images.xcassets in Resources */,
 				048EB52319036FC200FFD1BE /* CustomAlertViewController.xib in Resources */,
-				09A21B4E190229600098CFE3 /* player.png in Resources */,
 				09A21B2319021B330098CFE3 /* Main_iPad.storyboard in Resources */,
-				09A21B50190231860098CFE3 /* iceBlock.PNG in Resources */,
 				09A21B2019021B330098CFE3 /* Main_iPhone.storyboard in Resources */,
 				09A6EFED19030DE8008644DE /* Ice-icon.png in Resources */,
 				09A21B1719021B330098CFE3 /* InfoPlist.strings in Resources */,

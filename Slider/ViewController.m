@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "MyScene.h"
 //#import "CustomAlertViewController.m"
+#import <AudioToolbox/AudioToolbox.h>
 
 // Interface
 @interface ViewController ()
@@ -59,9 +60,6 @@ UIViewController *uivc;
     obj = scene;
     [obj setDelegate:self];
     CGPointMake(2,3);
-    
-    
-    
     
     
     // swipe gesture variable
