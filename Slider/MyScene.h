@@ -26,4 +26,5 @@
 -(void)initalizingScrollingBackground;
 @property (nonatomic, weak) id <ViewControllerDelegate> viewControllerDelegate;
 -(SKSpriteNode*)buildHoneyComb;
+-(SKSpriteNode*)buildFlower;
 @end

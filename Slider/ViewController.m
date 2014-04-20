@@ -34,9 +34,9 @@ TitleViewController *tv;
     
     
     // INitialize the custom view.
-    _customAlert = [[CustomAlertViewController alloc] init];
-    [_customAlert setDelegate:self];
-    [_customAlert showCustomAlertInView:self.view withMessage:@"Score: ???":@"WIN!"];
+//    _customAlert = [[CustomAlertViewController alloc] init];
+//    [_customAlert setDelegate:self];
+//    [_customAlert showCustomAlertInView:self.view withMessage:@"Score: ???":@"WIN!"];
     
     
     
