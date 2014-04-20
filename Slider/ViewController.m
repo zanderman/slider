@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "MyScene.h"
+//#import "CustomAlertViewController.m"
 #import "TitleViewController.h"
 
 @implementation ViewController
@@ -75,6 +76,17 @@ TitleViewController *tv;
     [self.view addGestureRecognizer:up_gesture];
     [self.view addGestureRecognizer:down_gesture];
     
+    
+//    // View Controller Popup code.
+//    ViewController *viewController = [[ViewController alloc] init];
+//    [self  addChildViewController:viewController];
+//    viewController.view.frame = scene.frame;
+//    [scene.view addSubview:viewController.view];
+//    viewController.view.alpha = 0;
+//    [viewController didMoveToParentViewController:scene];
+    
+    
+//    // Motion
     for (UIViewController *vc in [self childViewControllers]) {
         if([vc isKindOfClass:[TitleViewController class]]){
             tv = (TitleViewController *)vc; //Example & reminder to cast your reference

@@ -16,6 +16,8 @@
 #import <SpriteKit/SpriteKit.h>
 #import <CoreMotion/CoreMotion.h>
 #import "TitleViewController.h"
+#import "MyScene.h"
+#import "CustomAlertViewController.h"
 
 
 // Motion Variables
@@ -26,7 +28,7 @@ double currentMaxRotX;
 double currentMaxRotY;
 double currentMaxRotZ;
 
-@interface ViewController : UIViewController<SKPhysicsContactDelegate>
+@interface ViewController : UIViewController<CustomAlertViewControllerDelegate>
 
 // Motion
 @property (strong, nonatomic) IBOutlet UILabel *accX;

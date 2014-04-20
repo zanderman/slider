@@ -259,8 +259,8 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         SKAction *action = [SKAction moveTo:location duration:0.5f];
         
         // Alert popup.
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Title" message:@"Message" delegate:self cancelButtonTitle:@"Continue" otherButtonTitles: nil];
-        [alert show];
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Title" message:@"Message" delegate:self cancelButtonTitle:@"Continue" otherButtonTitles: nil];
+//        [alert show];
     
     // Load an image.
 //    UIImageView *aView = [[UIImageView alloc] init];
@@ -276,7 +276,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 //        aView.layer.borderWidth = 0.5f;
 //        [self.view addSubview:aView];
     
-//    }
+    }
 }
 
 
