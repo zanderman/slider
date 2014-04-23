@@ -88,7 +88,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         float gameHeight = height - 60;
         
         // Set up physics for the scene
-        self.physicsWorld.gravity = CGVectorMake(0,-0.3f);
+        self.physicsWorld.gravity = CGVectorMake(0,-0.2f);
         self.physicsWorld.contactDelegate = self;
         
         self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:CGRectMake(0, 0, width, gameHeight)];
@@ -296,15 +296,22 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         NSLog(@"Rain");
         [self.player removeAllActions];
         
+        // Raindrop Sprite.
+        SKSpriteNode *raindrop = secondBody.node;
+        [raindrop removeFromParent];    // Remove sprite from parent.
+        [_blocks removeObject:raindrop]; // Delete sprite from view.
+        
+        // Make character glow 'red' when hit.
         SKAction *pulseRed = [SKAction sequence:@[
-//        [SKAction rotateByAngle:1.0f duration:0.3],
           [SKAction colorizeWithColor:[SKColor redColor] colorBlendFactor:1.0 duration:0.15],
           [SKAction waitForDuration:0.1],
           [SKAction colorizeWithColorBlendFactor:0.0 duration:0.15],
           ]];
+        [self.player runAction: pulseRed]; // Run the action.
         
-        [self.player runAction: pulseRed];
+        // Decrement the life count.
         life--;
+        
         // Remove a honeycomb
         if ( life == 2 ) {
             honey3.hidden = YES;
@@ -315,10 +322,11 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         else if ( life == 0) {
             honey1.hidden = YES;
             NSString *scoreString = [NSString stringWithFormat:@"Score: %d", points];
-            [_viewController showResultScreen:scoreString:@"YOU LOSE!"];
+            
+            // NOTE:  Probelm with resetting life-bars is due to showResultScreen.
+//            [_viewController showResultScreen:scoreString:@"YOU LOSE!"];
             activeGame = false;
             isEnd = true;
-//            [self resetGame];
         }
         
         NSLog(@"Contact, Life: %d",life);
@@ -387,7 +395,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 //    /* Called when a touch begins */
     if(isEnd) {
-        [_viewController removeResultScreen];
+//        [_viewController removeResultScreen];
         [self resetGame];
     }
     else {
@@ -419,9 +427,10 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     }
 }
 
+
+// Resets all variables and initiates a new game.
 -(void)resetGame
 {
-//    [_viewController removeResultScreen];
     // Iterate through blocks
     for (SKSpriteNode *obj in _blocks) {
         if ( [obj isKindOfClass:[SKSpriteNode class]]) {
@@ -437,6 +446,12 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     dropIndex = 0;
     waterDropsFallen = 0;
     isEnd = false;
+    
+    // Reset Life bar
+    honey1.hidden = NO;
+    honey2.hidden = NO;
+    honey3.hidden = NO;
+    
     
     // Reset Labels
     NSString *string = [NSString stringWithFormat:@"Points: %d",points];
@@ -486,7 +501,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     {
         if ( _player.position.y <= 0 ) {
             NSString *scoreString = [NSString stringWithFormat:@"Score: %d", points];
-            [_viewController showResultScreen:scoreString:@" You Lose!"];
+//            [_viewController showResultScreen:scoreString:@" You Lose!"];
             activeGame = false;
             isEnd = true;
 //            [self resetGame];
