@@ -13,9 +13,10 @@
 #import <AudioToolbox/AudioToolbox.h>
 
 @interface MyScene ()
-@property (nonatomic) SKSpriteNode * player;
+@property (nonatomic) SKSpriteNode *player;
 @property (nonatomic, retain) UIViewController *contentViewController;
 @property (nonatomic,strong) ViewController *viewController;
+//@property (nonatomic, retain) AVAudioPlayer *audioplayer;
 @property NSInteger blocksX;
 @property NSInteger blocksY;
 @property NSMutableArray *blocks;
@@ -68,6 +69,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         NSLog(@"alskjdhflksajdhgflksdh");
     }
 }
+
 -(id)initWithSize:(CGSize)size {
     self.physicsWorld.contactDelegate = self;
     
@@ -134,6 +136,30 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         [honey3 setPosition:CGPointMake(CGRectGetMidX(self.frame)-25, self.frame.size.height-34)];
         [honey3 setSize:CGSizeMake(30, 30)];
         [self addChild:honey3];
+        
+        
+//        // Audio stuff.
+//        CFBundleRef mainBundle = CFBundleGetMainBundle();
+//        CFURLRef soundfileURLRef;
+//        soundfileURLRef = CFBundleCopyResourceURL(mainBundle, (CFStringRef)@"bumblebee2", CFSTR ("wav"), NULL);
+//        UInt32 SoundID;
+//        AudioServicesCreateSystemSoundID(soundfileURLRef, &SoundID);
+//        AudioServicesPlaySystemSound(SoundID);
+        
+//        SystemSoundID audioEffect;
+        NSString *fName = @"bumblebee2";
+        NSString *ext = @"wav";
+        NSURL *audioURL = [[NSBundle mainBundle] URLForResource:fName withExtension:ext];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:[audioURL path]])
+        {
+            NSLog(@"laskhdgfkasjhdgfkjashdgfkjshg");
+            AudioServicesCreateSystemSoundID((__bridge CFURLRef) audioURL, &_audioEffect);
+            AudioServicesPlaySystemSound(_audioEffect);
+        }
+        else
+        {
+            NSLog(@"error, file not found: %@", audioURL);
+        }
         
         
     }

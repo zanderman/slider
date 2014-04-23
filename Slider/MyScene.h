@@ -10,6 +10,8 @@
 @end
 
 #import <SpriteKit/SpriteKit.h>
+#import <AudioToolbox/AudioToolbox.h>
+//#import <AVFoundation/AVFoundation.h>
 #import "ViewController.h"
 #import "CustomAlertViewController.h"
 
@@ -29,6 +31,8 @@
 //@property (nonatomic, strong) CustomAlertViewController *customAlert; // Ending popup window.
 -(void)initalizingScrollingBackground;
 @property (nonatomic, weak) id <ViewControllerDelegate> viewControllerDelegate;
+//@property (nonatomic, retain) AVAudioPlayer *audioplayer;
+@property(nonatomic, assign) SystemSoundID audioEffect;
 -(SKSpriteNode*)buildHoneyComb;
 -(SKSpriteNode*)buildFlower;
 -(void)resetGame;

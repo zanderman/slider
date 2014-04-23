@@ -10,6 +10,8 @@
 		048EB51B1903505500FFD1BE /* raindrop.png in Resources */ = {isa = PBXBuildFile; fileRef = 048EB51A1903505500FFD1BE /* raindrop.png */; };
 		048EB52219036FC200FFD1BE /* CustomAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048EB52019036FC200FFD1BE /* CustomAlertViewController.m */; };
 		048EB52319036FC200FFD1BE /* CustomAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048EB52119036FC200FFD1BE /* CustomAlertViewController.xib */; };
+		04ACD5D81907693D00F1A699 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04ACD5D71907693D00F1A699 /* AudioToolbox.framework */; };
+		04ACD5DA19076B7D00F1A699 /* bumblebee2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 04ACD5D919076B7D00F1A699 /* bumblebee2.wav */; };
 		09125BE41903F9C700714A06 /* bee_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 09125BE31903F9C700714A06 /* bee_new.png */; };
 		09154665190383F000B0095E /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 09154664190383F000B0095E /* bg.jpg */; };
 		091546671903916C00B0095E /* honeycomb-hi.png in Resources */ = {isa = PBXBuildFile; fileRef = 091546661903916C00B0095E /* honeycomb-hi.png */; };
@@ -55,6 +57,8 @@
 		048EB51F19036FC200FFD1BE /* CustomAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlertViewController.h; sourceTree = "<group>"; };
 		048EB52019036FC200FFD1BE /* CustomAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlertViewController.m; sourceTree = "<group>"; };
 		048EB52119036FC200FFD1BE /* CustomAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomAlertViewController.xib; sourceTree = "<group>"; };
+		04ACD5D71907693D00F1A699 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		04ACD5D919076B7D00F1A699 /* bumblebee2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bumblebee2.wav; sourceTree = "<group>"; };
 		09125BE31903F9C700714A06 /* bee_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bee_new.png; sourceTree = "<group>"; };
 		09154664190383F000B0095E /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
 		091546661903916C00B0095E /* honeycomb-hi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "honeycomb-hi.png"; sourceTree = "<group>"; };
@@ -99,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04ACD5D81907693D00F1A699 /* AudioToolbox.framework in Frameworks */,
 				09A21B0D19021B330098CFE3 /* CoreGraphics.framework in Frameworks */,
 				09A21B0F19021B330098CFE3 /* UIKit.framework in Frameworks */,
 				09A21B1119021B330098CFE3 /* SpriteKit.framework in Frameworks */,
@@ -154,6 +159,7 @@
 		09A21B0919021B330098CFE3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04ACD5D71907693D00F1A699 /* AudioToolbox.framework */,
 				09A21B0A19021B330098CFE3 /* Foundation.framework */,
 				09A21B0C19021B330098CFE3 /* CoreGraphics.framework */,
 				09A21B0E19021B330098CFE3 /* UIKit.framework */,
@@ -167,7 +173,6 @@
 			isa = PBXGroup;
 			children = (
 				09125BE31903F9C700714A06 /* bee_new.png */,
-				091546791903DF1200B0095E /* bumblebee.caf */,
 				091546731903D0F500B0095E /* splashMain.png */,
 				048EB51E19036F6300FFD1BE /* Custom Alert View */,
 				0915466E1903976500B0095E /* honey.png */,
@@ -196,6 +201,8 @@
 		09A21B1319021B330098CFE3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				04ACD5D919076B7D00F1A699 /* bumblebee2.wav */,
+				091546791903DF1200B0095E /* bumblebee.caf */,
 				09A21B1419021B330098CFE3 /* Slider-Info.plist */,
 				09A21B1519021B330098CFE3 /* InfoPlist.strings */,
 				09A21B1819021B330098CFE3 /* main.m */,
@@ -316,6 +323,7 @@
 				0915466B1903936C00B0095E /* flower.png in Resources */,
 				0915466D1903946A00B0095E /* honey2.png in Resources */,
 				091546741903D0F500B0095E /* splashMain.png in Resources */,
+				04ACD5DA19076B7D00F1A699 /* bumblebee2.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
